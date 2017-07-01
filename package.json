@@ -1,15 +1,19 @@
 {
-  "name": "node",
+  "name": "HabitTracker",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Samani",
+  "author": "Samani Mukhtar",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "express-handlebars": "^3.0.0"
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.9",
+    "redis": "^2.7.1",
+    "redis-server": "^1.1.0"
   }
 }

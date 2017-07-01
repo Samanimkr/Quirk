@@ -1,1 +1,5 @@
-console.log("good moning");
+$(document).ready({
+
+
+  
+});
