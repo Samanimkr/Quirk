@@ -1,0 +1,25 @@
+<h2>Add User</h2>
+{{#if error}}<span>{{error}}</span>{{/if}}
+<form method="POST" action="/adduser">
+  <div class="input-field col s6 textbox">
+    <input placeholder="Add ID" name="id" type="text" class="validate">
+    <label for="id">ID</label>
+  </div>
+  <div class="input-field col s6 textbox">
+    <input placeholder="First Name" name="first_name" type="text" class="validate">
+    <label for="id">First Name</label>
+  </div>
+  <div class="input-field col s6 textbox">
+    <input placeholder="Last name" name="last_name" type="text" class="validate">
+    <label for="id">Last Name</label>
+  </div>
+  <div class="input-field col s6 textbox">
+    <input placeholder="Email address" name="email" type="text" class="validate">
+    <label for="id">Email</label>
+  </div>
+  <div class="input-field col s6 textbox">
+    <input placeholder="Phone number" name="phone" type="text" class="validate">
+    <label for="id">Phone</label>
+  </div>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Save</button>
+</form>

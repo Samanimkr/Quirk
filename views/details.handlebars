@@ -1,0 +1,9 @@
+<h1>{{user.first_name}} {{user.last_name}} [{{user.id}}]</h1>
+<ul class="collection">
+  <li class="collection-item"><strong>Email: </strong>{{user.email}}</li>
+  <li class="collection-item"><strong>Phone: </strong>{{user.phone}}</li>
+</ul>
+<a class="waves-effect waves-light btn left" href="/">Back</a>
+<form method="post" action="/deleteuser/{{user.id}}?_method=DELETE">
+  <button class="btn waves-effect waves-light red right" type="submit" name="action">Delete</button>
+</form>
