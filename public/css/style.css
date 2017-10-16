@@ -1,78 +1,86 @@
 body {
   font-family: Rubik, monospace;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
 }
-h1,h2,h3,h4,h5,h6 {
+
+h1,h2,h3,h4,h5 {
   margin: 0;
 }
-.small-badge{
-  float: right;
-  background-color:#000;
-  color:#fff;
-  display:inline-block;
-  padding-left:8px;
-  padding-right:8px;
-  text-align: center;
-  font-size: 13px;
-  border-radius:35%;
-  min-width: 24px;
-}
 
-#nav {
+header {
+  display: block;
   position: fixed;
-  display: block;
+  z-index: 5;
+  width: calc(100% - 200px);
+  height: 60px;
   top: 0;
-  height: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0px 1px 2px #ccc;
+}
+
+nav {
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
   width: 200px;
-  background-color: #2D3E4E;
-  font-weight: 600;
-}
-
-.nav-section {
-  padding-bottom: 10px;
-}
-
-.nav-section-heading{
-  margin-top: 15px;
-  padding: 0 8px;
-  font-family: arial,sans-serif;
-}
-
-#profile-pic {
-  float: left;
-  display: inline-block;
-  margin-top: 15px;
-  margin-left: 5px;
-  background-color: #cccccc;
-  border: 2px grey;
-}
-
-#profile {
-  height: 70px;
-  background-color: #2A3747;
-}
-
-#profile span{
-  float: left;
-  margin-top: 25px;
-  margin-left: 5px;
-}
-
-#links li{
-  width: 100%;
-  height: 40px;
-  padding: 10px 15px;
-  word-spacing: 8px;
-  /*background-color: #2C3949;*/
-}
-
-#links li:hover{
-  cursor: pointer;
-  background-color: #2C3949;
-}
-
-#content {
+  height: 100%;
   display: block;
+  background-color: #08D9D6;
+  color: #fff;
+}
+
+nav .nav_header {
+  height: 60px;
+  width: 100%;
+  color: #08D9D6;
+  background-color: #fff;
+  font-size: 20px;
+  padding: 18px 8px;
+}
+
+nav .nav_section_divider {
+  margin-top: 10px;
+  padding-left: 3px;
+  color: #78F9F5;
+  font-weight: 400;
+}
+
+nav .nav_links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+nav .nav_links ul li {
+  flex: 1;
+  list-style: none;
+}
+
+nav .nav_links ul li a {
+  display: block;
+  text-decoration: none;
+  word-spacing: 10px;
+  font-size: 16px;
+  color: #fff;
+  width: 100%;
+  height: 45px;
+  padding: 10px 8px;
+}
+
+nav .nav_links ul li a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.content {
+  background-color: #eee;
   position: relative;
-  top: 0;
-  margin-left: 200px;
+  top: 60px;
+  left: 200px;
+  width: calc(100% - 200px);
+  height: calc(100vh - 60px);
 }
