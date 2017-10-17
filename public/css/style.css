@@ -9,6 +9,10 @@ h1,h2,h3,h4,h5 {
   margin: 0;
 }
 
+.right {
+  float: right;
+}
+
 header {
   display: block;
   position: fixed;
@@ -20,6 +24,25 @@ header {
   background-color: #fff;
   box-shadow: 0px 1px 2px #ccc;
 }
+
+header  span{
+  display: inline-block;
+  font-size: 18px;
+  color: #444;
+  padding: 20px 10px;
+}
+
+header .current_user {
+  background-color: #f3f3f3;
+  height: 50px;
+  margin: 5px;
+  font-size: 17px;
+}
+
+header .current_user span{
+  padding: 17px 10px;
+}
+
 
 nav {
   position: fixed;
