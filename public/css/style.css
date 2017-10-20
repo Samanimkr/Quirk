@@ -9,6 +9,8 @@ h1,h2,h3,h4,h5 {
   margin: 0;
 }
 
+/*============================================================{  GENERAL  }===========================================================*/
+
 .right {
   float: right;
 }
@@ -17,32 +19,22 @@ header {
   display: block;
   position: fixed;
   z-index: 5;
-  width: calc(100% - 200px);
+  width: 100%;
   height: 60px;
   top: 0;
   right: 0;
   background-color: #fff;
-  box-shadow: 0px 1px 2px #ccc;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(204,204,204,1);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(204,204,204,1);
+  box-shadow: 0px 1px 4px 0px rgba(204,204,204,1);
 }
 
-header  span{
+header span{
   display: inline-block;
   font-size: 18px;
   color: #444;
   padding: 20px 10px;
 }
-
-header .current_user {
-  background-color: #f3f3f3;
-  height: 50px;
-  margin: 5px;
-  font-size: 17px;
-}
-
-header .current_user span{
-  padding: 17px 10px;
-}
-
 
 nav {
   position: fixed;
@@ -92,7 +84,7 @@ nav .nav_links ul li a {
   color: #fff;
   width: 100%;
   height: 45px;
-  padding: 10px 8px;
+  padding: 14px 8px;
 }
 
 nav .nav_links ul li a:hover {
@@ -102,8 +94,127 @@ nav .nav_links ul li a:hover {
 .content {
   background-color: #eee;
   position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+}
+
+/*============================================================{  DASHBOARD  }===========================================================*/
+
+header#dashboard_header {
+  width: calc(100% - 200px);
+}
+
+header#dashboard_header .current_user {
+  background-color: #f3f3f3;
+  height: 50px;
+  margin: 5px;
+  font-size: 17px;
+}
+
+header#dashboard_header .current_user span{
+  padding: 17px 10px;
+}
+
+.content#dashboard_content {
   top: 60px;
   left: 200px;
   width: calc(100% - 200px);
   height: calc(100vh - 60px);
+}
+
+/*============================================================{  LOGIN  }===========================================================*/
+
+header#login_header {
+  position: relative;
+}
+
+header#login_header span{
+  font-size: 20px;
+  color: #08D9D6;
+}
+
+.content#login_content {
+  top: 0;
+  height: calc(100vh - 60px);
+  background-color: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*background: url("/images/login_background.jpg");
+  background-size: cover;*/
+}
+
+.content#login_content .login_area {
+  flex: 1;
+  max-width: 600px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 7px 0 #bbb;
+  -moz-box-shadow: 0 1px 7px 0 #bbb;
+  box-shadow: 0 1px 7px 0 #bbb;
+}
+
+.content#login_content .login_area .login_area_top {
+  font-size: 18px;
+  background-color: #393E46;
+  color: #fff;
+  text-align: center;
+  height: 45px;
+  display: flex;
+}
+
+.content#login_content .login_area .login_area_top span {
+  flex: 1;
+  cursor: pointer;
+  padding: 13px 0;
+}
+
+.content#login_content .login_area .login_area_top span#selected {
+  background-color: #fff;
+  color: #393E46;
+}
+
+.content#login_content .login_area .login_area_bottom {
+  font-size: 16px;
+  text-align: left;
+  padding: 20px 0;
+}
+
+.content#login_content .login_area .login_area_bottom input{
+  display: block;
+  width: 70%;
+  height: 40px;
+  font-size: 17px;
+  border-radius: 3px;
+  margin: 13px auto;
+  text-indent: 5px;
+  border: 1px solid #ddd;
+}
+
+.content#login_content .login_area .login_area_bottom input[type="submit"]{
+  /*background-color: #00ADB5;*/
+  cursor: pointer;
+}
+
+.content#login_content .login_area .login_area_bottom p{
+  text-align:center;
+  font-size:12px;
+  letter-spacing:5px;
+  color: #bbb;
+  margin: 25px 0;
+}
+
+.content#login_content .login_area .login_area_bottom a#fb_login_btn{
+  display: block;
+  font-size: 17px;
+  padding: 12px;
+  text-align:center;
+  width: 70%;
+  height: 40px;
+  background-color: #3b5998;
+  color: #fff;
+  margin: 10px auto;
+  border-radius: 3px;
+  cursor: pointer;
 }
