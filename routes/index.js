@@ -17,5 +17,5 @@ module.exports = (app) => {
       title: "Quirk - Dashboard",
     });
   });
-  
+
 }

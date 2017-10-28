@@ -9,6 +9,7 @@
   "author": "Samani Mukhtar",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.17.0",
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
     "express-handlebars": "^3.0.0",
