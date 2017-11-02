@@ -5,7 +5,7 @@
 	  <img src="{{user.pictureUrl}}" />
 	  <span>{{user.name}}</span>
 	</div>
-	<a class="right" href=""> + </a>
+	<a class="right" id="add_habit" href=""><i class="fa fa-plus" aria-hidden="true"></i></a>
 </header>
 
 <nav>
@@ -22,5 +22,9 @@
 </nav>
 
 <div class="content" id="dashboard_content">
-  <div class=
+  <div class="add_habit_tab">
+	<form method="POST" action="/addhabit">
+	  <input type="text" name="habitName" required/>
+	</form>
+  </div>
 </div>
