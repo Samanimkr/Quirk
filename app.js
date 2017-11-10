@@ -24,3 +24,4 @@ app.listen(PORT, function(){
 
 require('./routes/index')(app);
 require('./routes/login')(app);
+require('./data');

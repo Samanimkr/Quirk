@@ -164,6 +164,26 @@ header#login_header span{
   color: #08D9D6;
 }
 
+header#login_header a#fb_login_btn{
+  display: block;
+  font-size: 15px;
+  padding: 17px;
+  text-align:center;
+  width: 300px;
+  height: 50px;
+  background-color: rgba(0,0,00,0.05);
+  border: 2px solid #3EC1D3;
+  color: #3EC1D3;
+  margin: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+header#login_header a#fb_login_btn:hover {
+  background-color: #3EC1D3;
+  color: #fff;
+}
+
 .content#login_content {
   top: 0;
   height: calc(100vh - 60px);
@@ -175,75 +195,12 @@ header#login_header span{
   background-size: cover;
 }
 
-.content#login_content .login_area {
+.content#login_content .about_area {
   flex: 1;
-  max-width: 600px;
+  max-width: 800px;
+  padding: 30px 20px;
   background-color: #fff;
   -webkit-box-shadow: 0 1px 7px 0 #bbb;
   -moz-box-shadow: 0 1px 7px 0 #bbb;
   box-shadow: 0 1px 15px 0 #666;
-}
-
-.content#login_content .login_area .login_area_top {
-  font-size: 18px;
-  background-color: #393E46;
-  color: #fff;
-  text-align: center;
-  height: 45px;
-  display: flex;
-}
-
-.content#login_content .login_area .login_area_top span {
-  flex: 1;
-  cursor: pointer;
-  padding: 13px 0;
-}
-
-.content#login_content .login_area .login_area_top span#selected {
-  background-color: #fff;
-  color: #393E46;
-}
-
-.content#login_content .login_area .login_area_bottom {
-  font-size: 16px;
-  text-align: left;
-  padding: 20px 0;
-}
-
-.content#login_content .login_area .login_area_bottom input{
-  display: block;
-  width: 70%;
-  height: 40px;
-  font-size: 17px;
-  border-radius: 3px;
-  margin: 13px auto;
-  text-indent: 5px;
-  border: 1px solid #ddd;
-}
-
-.content#login_content .login_area .login_area_bottom input[type="submit"]{
-  /*background-color: #00ADB5;*/
-  cursor: pointer;
-}
-
-.content#login_content .login_area .login_area_bottom p{
-  text-align:center;
-  font-size:12px;
-  letter-spacing:5px;
-  color: #bbb;
-  margin: 25px 0;
-}
-
-.content#login_content .login_area .login_area_bottom a#fb_login_btn{
-  display: block;
-  font-size: 17px;
-  padding: 12px;
-  text-align:center;
-  width: 70%;
-  height: 40px;
-  background-color: #3b5998;
-  color: #fff;
-  margin: 10px auto;
-  border-radius: 3px;
-  cursor: pointer;
 }
