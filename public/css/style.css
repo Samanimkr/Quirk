@@ -116,11 +116,11 @@ header#dashboard_header a {
   padding-top: 14px;
   text-align: center;
   font-size: 19px;
-  } 
+  }
 
 header#dashboard_header a:hover {
   background-color: #F3F3F3;
-} 
+}
 
 header#dashboard_header .current_user {
   background-color: #f3f3f3;
@@ -198,8 +198,8 @@ header#login_header a#fb_login_btn:hover {
 .content#login_content .about_area {
   flex: 1;
   max-width: 800px;
-  padding: 30px 20px;
-  background-color: #fff;
+  padding: 50px 20px;
+  background-color: rgba(255,255,255,0.75);
   -webkit-box-shadow: 0 1px 7px 0 #bbb;
   -moz-box-shadow: 0 1px 7px 0 #bbb;
   box-shadow: 0 1px 15px 0 #666;

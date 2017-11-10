@@ -1,6 +1,8 @@
 var fs = require("fs");
 var axios = require("axios");
 
+var User = require('../models/user');
+
 var Credentials = JSON.parse(fs.readFileSync("credentials.json"));
 
 module.exports = (app) => {
@@ -28,6 +30,14 @@ module.exports = (app) => {
           name: person.data.name,
           pictureUrl: person.data.picture.data.url
         }
+
+        var data = new User(profile);
+        data.save()
+        .then((savedUser) => {
+          console.log(savedUser);
+        }).catch((error) => {
+          console.log(error);
+        });
 
         res.render('dashboard', {user: profile});
       })
