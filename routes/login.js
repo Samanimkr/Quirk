@@ -28,16 +28,26 @@ module.exports = (app) => {
         var profile = {
           _id: person.data.id,
           name: person.data.name,
-          pictureUrl: person.data.picture.data.url
+          photoUrl: person.data.picture.data.url
         }
 
-        var data = new User(profile);
-        data.save()
-        .then((savedUser) => {
-          console.log(savedUser);
-        }).catch((error) => {
-          console.log(error);
-        });
+
+        var newUser = new User(profile);
+        User.update(
+          {_id: profile._id},
+          {$setOnInsert: newUser},
+          {upsert: true},
+          function(err, numAffected) {
+            console.log("err:" + err);
+            console.log("num: " + numAffected);
+          }
+        );
+        // data.save()
+        // .then((savedUser) => {
+        //   console.log(savedUser);
+        // }).catch((error) => {
+        //   console.log(error);
+        // });
 
         res.render('dashboard', {user: profile});
       })

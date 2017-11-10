@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 
 var userSchema = new Schema(
   {
-    // facebook_id: {type: Number, unique: true},
+    _id: Number,
     name: {type: String, required: true},
     photoUrl: {type: String, required: true}
   },

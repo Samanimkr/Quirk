@@ -1,8 +1,8 @@
 module.exports = (app) => {
-  
+
   app.get('/login', function(req, res, next){
     res.render('login', {
-      title: "Quirk - Loign",
+      title: "Quirk - Login",
     });
   });
 
