@@ -102,6 +102,15 @@ nav .nav_links ul li a:hover {
   height: 100vh;
 }
 
+input, select {
+  height: 30px;
+  margin: 3px 0 5px 0;
+  font-size: 15px;
+  border-radius: 5px;
+  border: none;
+  border-bottom: 2px solid #eee;
+}
+
 /*============================================================{  DASHBOARD  }===========================================================*/
 
 header#dashboard_header {
@@ -149,6 +158,55 @@ header#dashboard_header .current_user img {
   left: 200px;
   width: calc(100% - 200px);
   height: calc(100vh - 60px);
+}
+
+.content#dashboard_content .add_habit_tab {
+  display: none;
+  position: fixed;
+  z-index: 4;
+  right: 0;
+  top: 60px;
+  width: 400px;
+  background-color: #fff;
+  padding: 14px 10px;
+  border-radius: 0 0 5px 5px;
+}
+
+.content#dashboard_content .add_habit_tab form ul li label {
+  display: block;
+  font-size: 16px;
+  font-weight: 300;
+  color: #777;
+}
+
+.content#dashboard_content .add_habit_tab form ul li input, select {
+  width: 100%;
+  margin-bottom:15px;
+}
+
+.content#dashboard_content .add_habit_tab form ul li select {
+  background-color: #fff;
+}
+
+.content#dashboard_content .add_habit_tab form ul li input[type="submit"] {
+  background-color: #08D9D6;
+  cursor: pointer;
+  height: 40px;
+  margin-bottom: 0;
+}
+
+/* Placeholder Text Color For The Input Fields*/
+.content#dashboard_content .add_habit_tab form ul li input::-webkit-input-placeholder {
+  color: #ddd;
+}
+.content#dashboard_content .add_habit_tab form ul li input:-moz-placeholder {
+  color: #ddd;
+}
+.content#dashboard_content .add_habit_tab form ul li input::-moz-placeholder {
+  color: #ddd;
+}
+.content#dashboard_content .add_habit_tab form ul li input:-ms-input-placeholder {
+  color: #ddd;
 }
 
 /*============================================================{  LOGIN  }===========================================================*/

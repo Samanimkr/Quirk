@@ -1,3 +1,4 @@
+//Facebook analytics
 window.fbAsyncInit = function() {
     FB.init({
       appId      : '130915754333328',
@@ -17,8 +18,16 @@ window.fbAsyncInit = function() {
      fjs.parentNode.insertBefore(js, fjs);
    }(document, 'script', 'facebook-jssdk'));
 
-$(document).ready({
+$(document).ready(function(){
 
+  var animSpeed = 200;
 
+  //When 'Add habit' button is pressed => drop down menu
+  $('header#dashboard_header a#add_habit').click(function(){
+    $('.content#dashboard_content .add_habit_tab').slideToggle(animSpeed); //Slide toggle the drop down menu
+    $('header#dashboard_header a#add_habit').toggle(function(){
+      $('header#dashboard_header a#add_habit').css('color','F9F9F9');
+    });
+  });
 
 });

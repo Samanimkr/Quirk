@@ -8,7 +8,6 @@ const PORT = 3000; //node app port
 const DB_URL = "mongodb://localhost/quirk";
 const app = express(); //Init app
 
-mongoose.Promise = global.Promise; //this is very slow so change to bluebird for example
 mongoose.connect(DB_URL, {useMongoClient: true});
 
 app.use(express.static(path.join(__dirname, '/public')));
@@ -22,6 +21,5 @@ app.listen(PORT, function(){
   console.log("(port: "+PORT+") Server is now running...");
 });
 
-require('./routes/index')(app);
+require('./routes/routes')(app);
 require('./routes/login')(app);
-var User = require('./models/user');

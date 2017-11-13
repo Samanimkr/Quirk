@@ -22,7 +22,7 @@ module.exports = (app) => {
       var data = response.data;
       var access_token = data.access_token;
 
-      axios.get(`https://graph.facebook.com/v2.10/me?fields=id%2Cname%2Cpicture&access_token=${access_token}&redirect_uri=http://localhost:3000/dashboard`)
+      axios.get(`https://graph.facebook.com/v2.10/me?fields=id%2Cname%2Cpicture&access_token=${access_token}&redirect_uri=http://localhost:3000/`)
       .then(person => {
 
         var profile = {
@@ -32,16 +32,16 @@ module.exports = (app) => {
         }
 
 
-        var newUser = new User(profile);
-        User.update(
-          {_id: profile._id},
-          {$setOnInsert: newUser},
-          {upsert: true},
-          function(err, numAffected) {
-            console.log("err:" + err);
-            console.log("num: " + numAffected);
-          }
-        );
+        // var newUser = new User(profile);
+        // User.update(
+        //   {_id: profile._id},
+        //   {$setOnInsert: newUser},
+        //   {upsert: true},
+        //   function(err, numAffected) {
+        //     console.log("err:" + err);
+        //     console.log("num: " + numAffected);
+        //   }
+        // );
         // data.save()
         // .then((savedUser) => {
         //   console.log(savedUser);

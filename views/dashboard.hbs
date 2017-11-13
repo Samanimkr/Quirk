@@ -2,10 +2,10 @@
 	<span>Dashboard</span>
 	<div class="current_user right">
 	  <!-- <span>SM</span> -->
-	  <img src="{{user.pictureUrl}}" />
+	  <img src="{{user.photoUrl}}" />
 	  <span>{{user.name}}</span>
 	</div>
-	<a class="right" id="add_habit" href=""><i class="fa fa-plus" aria-hidden="true"></i></a>
+	<a class="right" id="add_habit"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </header>
 
 <nav>
@@ -24,7 +24,31 @@
 <div class="content" id="dashboard_content">
   <div class="add_habit_tab">
 	<form method="POST" action="/addhabit">
-	  <input type="text" name="habitName" placeholder="Habit Name" required/>
+		<ul>
+			<li>
+				<label for="habitName">Habit Name:</label>
+				<input type="text" name="habitName" placeholder="e.g. Gym" required/>
+			</li>
+			<li>
+				<label for="habitDesc">Habit Description:</label>
+				<input type="text" name="habitDesc" placeholder="Workout for 1 hour and do 15mins cardio." required/>
+			</li>
+			<li>
+				<label for="weeklyGoal">Weekly goal:</label>
+				<select name="weeklyGoal">
+					<option value="">Once a week</option>
+					<option value="">2 times a week</option>
+					<option value="">3 times a week</option>
+					<option value="">4 times a week</option>
+					<option value="">5 times a week</option>
+					<option value="">6 times a week</option>
+					<option value="">Every day</option>
+				</select>
+			</li>
+			<li>
+				<input type="submit" value="Add Habit" />
+			</li>
+		</ul>
 	</form>
   </div>
 </div>

@@ -12,4 +12,14 @@ module.exports = (app) => {
     });
   });
 
+  app.post('/addhabit', function(req, res, next){
+    var habit = {
+      owner: 0,
+      habit_name: req.body.habitName,
+      habit_desc: req.body.habitDesc,
+      weekly_goal: req.body.weeklyGoal
+    }
+    console.log(habit);
+  });
+
 }
