@@ -181,6 +181,7 @@ header#dashboard_header .current_user img {
 
 .content#dashboard_content .add_habit_tab form ul li input, select {
   width: 100%;
+  padding-left: 5px;
   margin-bottom:15px;
 }
 
@@ -190,6 +191,7 @@ header#dashboard_header .current_user img {
 
 .content#dashboard_content .add_habit_tab form ul li input[type="submit"] {
   background-color: #08D9D6;
+  color: #fff;
   cursor: pointer;
   height: 40px;
   margin-bottom: 0;
@@ -245,7 +247,7 @@ header#login_header a#fb_login_btn:hover {
 .content#login_content {
   top: 0;
   height: calc(100vh - 60px);
-  background-color: #eee;
+  background-color: #f3f3f3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -256,9 +258,21 @@ header#login_header a#fb_login_btn:hover {
 .content#login_content .about_area {
   flex: 1;
   max-width: 800px;
-  padding: 50px 20px;
+  padding: 30px 20px;
+  line-height: 24px;
   background-color: rgba(255,255,255,0.75);
-  -webkit-box-shadow: 0 1px 7px 0 #bbb;
-  -moz-box-shadow: 0 1px 7px 0 #bbb;
-  box-shadow: 0 1px 15px 0 #666;
+  -webkit-box-shadow: 0 1px 7px 0 #888;
+  -moz-box-shadow: 0 1px 7px 0 #888;
+  box-shadow: 0 1px 15px 0 #888;
+  border-radius: 5px;
+}
+
+.content#login_content .about_area h3{
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.content#login_content .about_area p{
+  font-size: 17px;
+  color: #222;
 }

@@ -25,9 +25,6 @@ $(document).ready(function(){
   //When 'Add habit' button is pressed => drop down menu
   $('header#dashboard_header a#add_habit').click(function(){
     $('.content#dashboard_content .add_habit_tab').slideToggle(animSpeed); //Slide toggle the drop down menu
-    $('header#dashboard_header a#add_habit').toggle(function(){
-      $('header#dashboard_header a#add_habit').css('color','F9F9F9');
-    });
   });
 
 });

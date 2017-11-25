@@ -3,12 +3,23 @@ var axios = require("axios");
 
 var User = require('../models/user');
 
-var Credentials = JSON.parse(fs.readFileSync("credentials.json"));
+var credsAvailable;
+if (fs.existsSync("credentials.json")) {
+  credsAvailable = true;
+  var Credentials = JSON.parse(fs.readFileSync("credentials.json"));
+} else {
+  console.log("[Warning] Facebook login needs credentials.json to work!");
+  credsAvailable = false;
+}
 
 module.exports = (app) => {
 
   app.get('/fblogin', function(req, res){
-    res.redirect(`https://www.facebook.com/v2.10/dialog/oauth?client_id=${Credentials.client_id}&redirect_uri=${Credentials.redirect_uri}`);
+    if(credsAvailable){
+      res.redirect(`https://www.facebook.com/v2.10/dialog/oauth?client_id=${Credentials.client_id}&redirect_uri=${Credentials.redirect_uri}`);
+    } else {
+      res.redirect("/login");
+    }
   });
 
   app.get('/fbredirect', function(req, res){
@@ -32,23 +43,23 @@ module.exports = (app) => {
         }
 
 
-        // var newUser = new User(profile);
-        // User.update(
-        //   {_id: profile._id},
-        //   {$setOnInsert: newUser},
-        //   {upsert: true},
-        //   function(err, numAffected) {
-        //     console.log("err:" + err);
-        //     console.log("num: " + numAffected);
-        //   }
-        // );
-        // data.save()
-        // .then((savedUser) => {
-        //   console.log(savedUser);
-        // }).catch((error) => {
-        //   console.log(error);
-        // });
 
+        User.findOne({'_id': profile._id}, function(err, user) {
+          if (err) console.log("err: " + err);
+          console.log("user:" +user);
+          if (user==null){
+            var newUser = new User(profile);
+            newUser.save()
+            .then(savedUser => {
+              console.log("user saved: " + savedUser);
+            }).catch(err => {
+              console.log("err: "+err);
+            });
+          }
+        });
+
+
+        //save profile to database or session because res.redirect doesnt let you insert data to be sent
         res.render('dashboard', {user: profile});
       })
       .catch(error => {
