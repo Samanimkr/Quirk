@@ -42,7 +42,7 @@ module.exports = (app) => {
           photoUrl: person.data.picture.data.url
         }
 
-
+		req.session.user = profile._id;
 
         User.findOne({'_id': profile._id}, function(err, user) {
           if (err) console.log("err: " + err);
@@ -60,7 +60,7 @@ module.exports = (app) => {
 
 
         //save profile to database or session because res.redirect doesnt let you insert data to be sent
-        res.render('dashboard', {user: profile});
+        res.redirect('/');
       })
       .catch(error => {
         console.log(error);
