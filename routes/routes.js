@@ -23,7 +23,7 @@ module.exports = (app) => {
 
   app.post('/addhabit', function(req, res, next){
     var habit = {
-      owner: 0,
+      owner: req.session.user,
       habit_name: req.body.habitName,
       habit_desc: req.body.habitDesc,
       weekly_goal: req.body.weeklyGoal

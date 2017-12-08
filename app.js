@@ -28,6 +28,7 @@ store.on('error', function(error) {
 app.use(express.static(path.join(__dirname, '/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(cookieParser());
 app.use(session({
   key: 'user_sid',
   secret: 'znxbcuzxxiyekjnadc',
@@ -35,16 +36,16 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    expires: 6000000, //10mins if you remove one zero
+    expires: 100, //10mins if you remove one zero
     // secure: true //ENABLE when HTTPS is setup!!
   }
 }));
-/*
+
 app.use(function(req, res, next) {
   res.locals.LoggedIn = (req.session.user && req.cookies.user_sid) ? true : false;
   next();
 });
-*/
+
 app.engine('hbs', handlebars({defaultLayout: 'main'})); //View engine (Handlebars)
 app.set( 'view engine', 'hbs');
 
