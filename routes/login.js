@@ -46,7 +46,6 @@ module.exports = (app) => {
 
         User.findOne({'_id': profile._id}, function(err, user) {
           if (err) console.log("err: " + err);
-          console.log("user:" +user);
           if (user==null){
             var newUser = new User(profile);
             newUser.save()

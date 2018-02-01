@@ -197,6 +197,37 @@ header#dashboard_header .current_user img {
   margin-bottom: 0;
 }
 
+.content#dashboard_content .habits ul {
+    padding: 10px 0;
+}
+
+.content#dashboard_content .habits ul li {
+    margin: 0 auto;
+    width: 70%;
+    background-color: #fff;
+}
+
+.content#dashboard_content .habits ul li #habit_top {
+    height:30px;
+    padding: 4px; 
+}
+
+.content#dashboard_content .habits ul li #habit_top h3{
+    display: inline-block;
+    font-size:18px;
+}
+
+.content#dashboard_content .habits ul li #habit_top badge {
+    box-sizing: content-box;
+    display: inline-block;
+    font-size: 14px;
+    background-color: #ddd;
+    padding: 5px;
+    border-radius: 3px;
+    float: right;
+    margin: 0 5px;
+}
+
 /* Placeholder Text Color For The Input Fields*/
 .content#dashboard_content .add_habit_tab form ul li input::-webkit-input-placeholder {
   color: #ddd;

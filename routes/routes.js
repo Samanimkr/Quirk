@@ -1,24 +1,36 @@
+var User = require('../models/user');
+
 module.exports = (app) => {
 	
 	// middleware function to check for logged-in users
 	var sessionChecker = (req, res, next) => {
-	  if (!req.session.user || !req.cookies.user_sid) {
+	  if (!req.session.user) {
 		res.redirect('/login');
 	  } else {
 		next();
 	  }
 	};
 
-  app.get('/login', function(req, res, next){
-    res.render('login', {
-      title: "Quirk - Login",
+    app.get('/login', function (req, res, next) {
+        if (req.session.user) {
+            res.redirect("/");
+        } else {
+            res.render('login', {
+                title: "Quirk - Login",
+            });
+        }
     });
-  });
 
-  app.get('/', sessionChecker, function(req, res, next){
-    res.render('dashboard', {
-      title: "Quirk - Dashboard",
-    });
+    app.get('/', sessionChecker, function (req, res, next) {
+        var LoggedInUser = req.session.user;
+
+        User.findOne({ '_id': LoggedInUser }, function (err, user) {
+            if (err) console.log("err: " + err);
+            res.render('dashboard', {
+                title: "Quirk - Dashboard",
+                user: user
+            });
+        });
   });
 
   app.post('/addhabit', function(req, res, next){
