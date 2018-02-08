@@ -228,9 +228,28 @@ header#dashboard_header .current_user img {
     margin: 0 5px;
 }
 
+.content#dashboard_content .habits ul li #habit_middle ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content#dashboard_content .habits ul li #habit_middle ul li {
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    height: 30px;
+    font-size: 16px;
+    padding: 7px 0;
+    background-color: #f1ffff;
+}
+
+.content#dashboard_content .habits ul li #habit_middle ul li:hover {
+    background-color: #f1f6f6;
+}
+
 /* Placeholder Text Color For The Input Fields*/
 .content#dashboard_content .add_habit_tab form ul li input::-webkit-input-placeholder {
-  color: #ddd;
+    color: #ddd;
 }
 .content#dashboard_content .add_habit_tab form ul li input:-moz-placeholder {
   color: #ddd;
