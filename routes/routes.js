@@ -1,7 +1,7 @@
 var User = require('../models/user');
 
 module.exports = (app) => {
-	
+
 	// middleware function to check for logged-in users
 	var sessionChecker = (req, res, next) => {
 	  if (!req.session.user) {
@@ -41,6 +41,7 @@ module.exports = (app) => {
       weekly_goal: req.body.weeklyGoal
     }
     console.log(habit);
+	res.redirect("/");
   });
 
 }

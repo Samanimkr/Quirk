@@ -14,18 +14,18 @@ var userSchema = new Schema(
 var habitSchema = new Schema(
     {
         owner: Number,
-        weeks: [weekSchema],
+        datesCompleted: [String],
         CurrentStreak: Number,
         maxStreak: Number,
     },
     { collection: 'habits' }
 );
-
-var weekSchema = new Schema(
-    {
-        the dates
-    },
-);
+// 
+// var datesSchema = new Schema(
+//     {
+//         date: String
+//     },
+// );
 
 
 var User = module.exports = mongoose.model('User', userSchema);
