@@ -54,6 +54,12 @@ module.exports = (app) => {
     });
   });
 
+  app.get('/gethabits', function(req,res){
+	  Habit.find({owner: req.session.user}, function(err, habits){
+		  res.json(habits);
+	  });
+  });
+
   app.post('/updatehabit', function(req,res){
 	  Habit.findOne({_id: req.body.habit_id}, function(err, habit){
 		  if(habit.datesCompleted.includes(req.body.date)){ //if it already exists in the array => remove it =>(else) add it

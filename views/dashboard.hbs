@@ -53,26 +53,7 @@
 	</div>
     <div class="habits">
 		{{#if habits}}
-	        <ul>
-				{{#each habits}}
-		            <li id="HabitID_{{this._id}}">
-		                <div id="habit_top">
-		                    <h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
-		                    <badge>Edit</badge>
-		                    <badge>Stats</badge>
-		                </div>
-		                <div id="habit_middle">
-		                    <ul>
-		                        <li></li><li></li><li></li><li></li><li></li>
-		                    </ul>
-		                </div>
-		                <!-- <div id="habit_bottom">
-							<a href="#" id="completed"><i class="fas fa-check"></i></a>
-							<a href="#" id="failed"><i class="fas fa-times"></i></a>
-		                </div> -->
-		            </li>
-				{{/each}}
-	        </ul>
+	        <ul id="habits_ul"></ul>
 		{{/if}}
     </div>
 </div>

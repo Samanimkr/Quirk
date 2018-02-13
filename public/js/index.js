@@ -27,7 +27,36 @@ $(document).ready(function(){
     $('.content#dashboard_content .add_habit_tab').slideToggle(animSpeed); //Slide toggle the drop down menu
   });
 
-    getDays();
+    getHabits();
+    function getHabits(){
+        axios.get('/gethabits')
+        .then(response => {
+            var data = response.data;
+            var html;
+            for (var habit = 0; habit < data.length; habit++) {
+                html = `
+                <li id="HabitID_${data[habit]._id}">
+                    <div id="habit_top">
+                        <h3>${data[habit].habit_name} - ${data[habit].weekly_goal} time(s) a week</h3>
+                        <badge>Edit</badge>
+                        <badge>Stats</badge>
+                    </div>
+                    <div id="habit_middle">
+                        <ul>
+                            <li></li><li></li><li></li><li></li><li></li>
+                        </ul>
+                    </div>
+                </li>`;
+
+                $("#habits_ul").append(html);
+                console.log(response.data[habit]);
+            }
+            getDays();
+        }).catch(err => {
+            console.log(err);
+        });
+    }
+
     function getDays(){
         var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
         var today = new Date();
@@ -42,7 +71,8 @@ $(document).ready(function(){
     }
 
 
-    $('.content#dashboard_content .habits ul li #habit_middle ul li').click(function(){
+    $(document).on('click', '.content#dashboard_content .habits ul li #habit_middle ul li', function(){ 
+        console.log("clicked");
         var posting = false;
         var dayClicked = $(this).index();
         var date = getDate(dayClicked);

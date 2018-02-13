@@ -205,7 +205,7 @@ header#dashboard_header .current_user img {
     margin: 0 auto 20px auto;
     width: 70%;
     background-color: #fff;
-    box-shadow: 1px 0 5px #ddd;
+    box-shadow: 1px 1px 15px #ccc;
 }
 
 .content#dashboard_content .habits > ul > li #habit_top {
@@ -246,6 +246,7 @@ header#dashboard_header .current_user img {
     font-weight: 200;
     padding: 17px 0;
     border-top: 1px solid #f1f6f6;
+    box-shadow: 0px 0px 1px #aaa;
 }
 
 .content#dashboard_content .habits > ul li #habit_middle ul li:hover {
