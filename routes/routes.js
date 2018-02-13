@@ -1,4 +1,5 @@
 var User = require('../models/user');
+var Habit = require('../models/habit');
 
 module.exports = (app) => {
 
@@ -25,23 +26,33 @@ module.exports = (app) => {
         var LoggedInUser = req.session.user;
 
         User.findOne({ '_id': LoggedInUser }, function (err, user) {
-            if (err) console.log("err: " + err);
-            res.render('dashboard', {
-                title: "Quirk - Dashboard",
-                user: user
-            });
+			Habit.find({'owner': LoggedInUser}, function(err, habits){
+				res.render('dashboard', {
+					title: "Quirk - Dashboard",
+					user: user,
+					habits: habits
+				});
+			});
         });
   });
 
   app.post('/addhabit', function(req, res, next){
-    var habit = {
+    var newHabit = {
       owner: req.session.user,
       habit_name: req.body.habitName,
       habit_desc: req.body.habitDesc,
       weekly_goal: req.body.weeklyGoal
     }
     console.log(habit);
-	res.redirect("/");
+	var habit = new Habit(newHabit);
+	habit.save()
+	.then((savedHabit) => {
+      res.redirect('/');
+    }).catch((error) => {
+      console.log(error);
+      res.redirect('/');
+    });
+
   });
 
 }

@@ -15,7 +15,7 @@ h1,h2,h3,h4,h5 {
   float: right;
 }
 
-header {
+header {::
   display: block;
   position: fixed;
   z-index: 5;
@@ -197,29 +197,29 @@ header#dashboard_header .current_user img {
   margin-bottom: 0;
 }
 
-.content#dashboard_content .habits ul {
+.content#dashboard_content .habits > ul {
     padding: 10px 0;
 }
 
-.content#dashboard_content .habits ul li {
+.content#dashboard_content .habits > ul li {
     margin: 0 auto;
     width: 70%;
     background-color: #fff;
     box-shadow: 1px 0 5px #ddd;
 }
 
-.content#dashboard_content .habits ul li #habit_top {
+.content#dashboard_content .habits > ul li #habit_top {
     height:30px;
     padding: 4px 6px;
 }
 
-.content#dashboard_content .habits ul li #habit_top h3{
+.content#dashboard_content .habits > ul li #habit_top h3{
     display: inline-block;
-    font-size:18px;
+    font-size:17px;
     margin-top: 2px;
 }
 
-.content#dashboard_content .habits ul li #habit_top badge {
+.content#dashboard_content .habits > ul li #habit_top badge {
     cursor: pointer;
     box-sizing: content-box;
     display: inline-block;
@@ -231,13 +231,13 @@ header#dashboard_header .current_user img {
     margin: 0 5px;
 }
 
-.content#dashboard_content .habits ul li #habit_middle ul {
+.content#dashboard_content .habits > ul li #habit_middle ul {
     display: flex;
     justify-content: space-between;
     padding: 0;
 }
 
-.content#dashboard_content .habits ul li #habit_middle ul li {
+.content#dashboard_content .habits > ul li #habit_middle ul li {
     cursor: pointer;
     flex: 1;
     text-align: center;
@@ -248,8 +248,30 @@ header#dashboard_header .current_user img {
     border-top: 1px solid #f1f6f6;
 }
 
-.content#dashboard_content .habits ul li #habit_middle ul li:hover {
+.content#dashboard_content .habits > ul li #habit_middle ul li:hover {
     background-color: #f1f6f6;
+}
+
+.content#dashboard_content .habits > ul li #habit_bottom {
+    width: 200px;
+    margin: 0 auto;
+    height: 30px;
+}
+
+.content#dashboard_content .habits > ul li #habit_bottom a {
+    display: inline-block;
+    width: 49%;
+    height: 100%;
+    text-align: center;
+    background-color: #f5f5f5;
+    margin: 0;
+}
+
+.content#dashboard_content .habits > ul li #habit_bottom a#completed {
+    background-color: #17B978;
+}
+.content#dashboard_content .habits > ul li #habit_bottom a#failed {
+    background-color: #F67280;
 }
 
 /* Placeholder Text Color For The Input Fields*/
@@ -257,13 +279,13 @@ header#dashboard_header .current_user img {
     color: #ddd;
 }
 .content#dashboard_content .add_habit_tab form ul li input:-moz-placeholder {
-  color: #ddd;
+    color: #ddd;
 }
 .content#dashboard_content .add_habit_tab form ul li input::-moz-placeholder {
-  color: #ddd;
+    color: #ddd;
 }
 .content#dashboard_content .add_habit_tab form ul li input:-ms-input-placeholder {
-  color: #ddd;
+    color: #ddd;
 }
 
 /*============================================================{  LOGIN  }===========================================================*/

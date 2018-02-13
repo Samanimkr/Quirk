@@ -11,23 +11,6 @@ var userSchema = new Schema(
     {collection: 'users'}
 );
 
-var habitSchema = new Schema(
-    {
-        owner: Number,
-        datesCompleted: [String],
-        CurrentStreak: Number,
-        maxStreak: Number,
-    },
-    { collection: 'habits' }
-);
-// 
-// var datesSchema = new Schema(
-//     {
-//         date: String
-//     },
-// );
-
-
 var User = module.exports = mongoose.model('User', userSchema);
 
 //USE THIS WHEN CALLING IT: var User = require('./models/user');

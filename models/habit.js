@@ -8,16 +8,13 @@ var habitSchema = new Schema(
     habit_name: {type: String, required: true},
     habit_desc: String,
     weekly_goal: Number,
-    history: [String]
+    datesCompleted: [String],
+    CurrentStreak: {type: Number, default: 0},
+    maxStreak: {type: Number, default: 0},
   },
   {collection: 'habits'}
 );
 
-// var historySchema = new Schema(
-//   {
-//     date: String
-//   }
-// );
 
 var Habit = module.exports = mongoose.model('Habit', habitSchema);
 

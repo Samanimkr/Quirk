@@ -22,7 +22,7 @@
 </nav>
 
 <div class="content" id="dashboard_content">
-  <div class="add_habit_tab">
+	<div class="add_habit_tab">
 	<form method="POST" action="/addhabit">
 		<ul>
 			<li>
@@ -36,13 +36,13 @@
 			<li>
 				<label for="weeklyGoal">Weekly goal:</label>
 				<select name="weeklyGoal">
-					<option value="">Once a week</option>
-					<option value="">2 times a week</option>
-					<option value="">3 times a week</option>
-					<option value="">4 times a week</option>
-					<option value="">5 times a week</option>
-					<option value="">6 times a week</option>
-					<option value="">Every day</option>
+					<option value="1">Once a week</option>
+					<option value="2">2 times a week</option>
+					<option value="3">3 times a week</option>
+					<option value="4">4 times a week</option>
+					<option value="5">5 times a week</option>
+					<option value="6">6 times a week</option>
+					<option value="7">Every day</option>
 				</select>
 			</li>
 			<li>
@@ -50,28 +50,29 @@
 			</li>
 		</ul>
 	</form>
-  </div>
+	</div>
     <div class="habits">
-        <ul>
-            <li>
-                <div id="habit_top">
-                    <h3>Habit Name</h3>
-                    <badge>Edit</badge>
-                    <badge>Stats</badge>
-                </div>
-                <div id="habit_middle">
-                    <ul>
-                        <li></li>
-                        <li></li>
-                        <li>Today</li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </div>
-                <div id="habit_bottom">
-
-                </div>
-            </li>
-        </ul>
+		{{#if habits}}
+	        <ul>
+				{{#each habits}}
+		            <li>
+		                <div id="habit_top">
+		                    <h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
+		                    <badge>Edit</badge>
+		                    <badge>Stats</badge>
+		                </div>
+		                <div id="habit_middle">
+		                    <ul>
+		                        <li></li><li></li><li></li><li></li><li></li>
+		                    </ul>
+		                </div>
+		                <!-- <div id="habit_bottom">
+							<a href="#" id="completed"><i class="fas fa-check"></i></a>
+							<a href="#" id="failed"><i class="fas fa-times"></i></a>
+		                </div> -->
+		            </li>
+				{{/each}}
+	        </ul>
+		{{/if}}
     </div>
 </div>

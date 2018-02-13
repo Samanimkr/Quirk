@@ -36,7 +36,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    expires: 600000, //10mins if you remove one zero
+    expires: 6000000, //10mins if you remove one zero
     // secure: true //ENABLE when HTTPS is setup!!
   }
 }));
