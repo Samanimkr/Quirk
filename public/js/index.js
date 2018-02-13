@@ -42,5 +42,26 @@ $(document).ready(function(){
     }
 
 
-    $('.content#dashboard_content .habits ul li #habit_middle ul li').click()
+    $('.content#dashboard_content .habits ul li #habit_middle ul li').click(function(){
+        var dayClicked = $(this).index();
+        var date = getDate(dayClicked);
+        var id = $(this).parent().parent().parent().attr('id');
+        id = id.substr(8);
+        console.log(date);
+        console.log(id);
+    })
+
+    function getDate(dayClicked){
+        var today = new Date();
+        var dateOffset = (24*60*60*1000) * (2-dayClicked); //5 days
+        today.setTime(today.getTime() - dateOffset);
+
+        var dd = today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+        if(dd<10) dd='0'+dd;
+        if(mm<10) mm='0'+mm;
+        
+        return `${dd}/${mm}/${yyyy}`;
+    }
 });

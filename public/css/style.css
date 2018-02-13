@@ -198,28 +198,28 @@ header#dashboard_header .current_user img {
 }
 
 .content#dashboard_content .habits > ul {
-    padding: 10px 0;
+    padding: 15px 0;
 }
 
-.content#dashboard_content .habits > ul li {
-    margin: 0 auto;
+.content#dashboard_content .habits > ul > li {
+    margin: 0 auto 20px auto;
     width: 70%;
     background-color: #fff;
     box-shadow: 1px 0 5px #ddd;
 }
 
-.content#dashboard_content .habits > ul li #habit_top {
+.content#dashboard_content .habits > ul > li #habit_top {
     height:30px;
     padding: 4px 6px;
 }
 
-.content#dashboard_content .habits > ul li #habit_top h3{
+.content#dashboard_content .habits > ul > li #habit_top h3{
     display: inline-block;
     font-size:17px;
     margin-top: 2px;
 }
 
-.content#dashboard_content .habits > ul li #habit_top badge {
+.content#dashboard_content .habits > ul > li #habit_top badge {
     cursor: pointer;
     box-sizing: content-box;
     display: inline-block;
