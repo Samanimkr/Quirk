@@ -43,12 +43,33 @@ $(document).ready(function(){
 
 
     $('.content#dashboard_content .habits ul li #habit_middle ul li').click(function(){
+        var posting = false;
         var dayClicked = $(this).index();
         var date = getDate(dayClicked);
-        var id = $(this).parent().parent().parent().attr('id');
-        id = id.substr(8);
-        console.log(date);
-        console.log(id);
+        var habit_name = $(this).parent().parent().parent().attr('id');
+        var id = habit_name.substr(8);
+
+        console.log("date: " + date);
+        // Send a POST request
+        if(!posting){
+            posting=true;
+            axios.post('/updatehabit', {
+                habit_id: id,
+                date: date
+            })
+            .then(function (response) {
+                posting=false;
+                if(response.data == "added"){
+                    $(`.content#dashboard_content .habits ul li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ddffdd");
+                } else {
+                    $(`.content#dashboard_content .habits ul li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ffdddd");
+                }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        }
+
     })
 
     function getDate(dayClicked){
@@ -61,7 +82,7 @@ $(document).ready(function(){
         var yyyy = today.getFullYear();
         if(dd<10) dd='0'+dd;
         if(mm<10) mm='0'+mm;
-        
+
         return `${dd}/${mm}/${yyyy}`;
     }
 });

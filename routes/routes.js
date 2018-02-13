@@ -52,7 +52,25 @@ module.exports = (app) => {
       console.log(error);
       res.redirect('/');
     });
-
   });
+
+  app.post('/updatehabit', function(req,res){
+	  Habit.findOne({_id: req.body.habit_id}, function(err, habit){
+		  if(habit.datesCompleted.includes(req.body.date)){ //if it already exists in the array => remove it =>(else) add it
+			  var index = habit.datesCompleted.indexOf(req.body.date);
+			  habit.datesCompleted.splice(index);
+			  habit.save();
+			  res.send("removed");
+		  } else {
+			  habit.datesCompleted.push(req.body.date);
+			  habit.save();
+			  res.send("added");
+		  }
+	  });
+  });
+
+  function isInArray(value, array) {
+	  return array.indexOf(value) > -1;
+  }
 
 }
