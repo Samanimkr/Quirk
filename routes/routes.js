@@ -34,7 +34,21 @@ module.exports = (app) => {
 				});
 			});
         });
-  });
+  	});
+
+	app.get('/statistics', sessionChecker, function (req, res, next) {
+        var LoggedInUser = req.session.user;
+
+        User.findOne({ '_id': LoggedInUser }, function (err, user) {
+			Habit.find({'owner': LoggedInUser}, function(err, habits){
+				res.render('statistics', {
+					title: "Quirk - Statistics",
+					user: user,
+					habits: habits
+				});
+			});
+        });
+  	});
 
   app.post('/addhabit', function(req, res, next){
     var newHabit = {
@@ -43,7 +57,7 @@ module.exports = (app) => {
       habit_desc: req.body.habitDesc,
       weekly_goal: req.body.weeklyGoal
     }
-    console.log(habit);
+
 	var habit = new Habit(newHabit);
 	habit.save()
 	.then((savedHabit) => {
