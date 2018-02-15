@@ -9,6 +9,7 @@ var habitSchema = new Schema(
     habit_desc: String,
     weekly_goal: Number,
     datesCompleted: [String],
+    datesFailed: [String],
     CurrentStreak: {type: Number, default: 0},
     maxStreak: {type: Number, default: 0},
   },

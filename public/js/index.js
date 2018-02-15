@@ -34,22 +34,26 @@ $(document).ready(function(){
             var data = response.data;
             var html;
             for (var habit = 0; habit < data.length; habit++) {
-                html = `
-                <li id="HabitID_${data[habit]._id}">
-                    <div id="habit_top">
-                        <h3>${data[habit].habit_name} - ${data[habit].weekly_goal} time(s) a week</h3>
-                        <badge>Edit</badge>
-                        <badge>Stats</badge>
-                    </div>
-                    <div id="habit_middle">
-                        <ul>
-                            <li></li><li></li><li></li><li></li><li></li>
-                        </ul>
-                    </div>
-                </li>`;
 
-                $("#habits_ul").append(html);
-                console.log(response.data[habit]);
+                var d = new Date();
+                d.setDate(d.getDate() - 2);
+
+                for (var i=0; i<5; i++){
+                    var dd = d.getDate();
+                    var mm = d.getMonth()+1;
+                    var yyyy = d.getFullYear();
+                    if (dd<10) dd = "0" + dd;
+                    if (mm<10) mm = "0" + mm;
+                    var currentDay = dd+"/"+mm+"/"+yyyy;
+                    if (data[habit].datesCompleted.includes(currentDay)) {
+                        $(`li#HabitID_${data[habit]._id} #habit_middle ul li:nth-of-type(${i+1})`).css("backgroundColor", "#ddffdd");
+                    } else if (data[habit].datesFailed.includes(currentDay)){
+                        $(`li#HabitID_${data[habit]._id} #habit_middle ul li:nth-of-type(${i+1})`).css("backgroundColor", "#ffdddd");
+                    } else {
+                        $(`li#HabitID_${data[habit]._id} #habit_middle ul li:nth-of-type(${i+1})`).css("backgroundColor", "#FFF");
+                    }
+                    d.setDate(d.getDate()+1);
+                }
             }
             getDays();
         }).catch(err => {
@@ -71,7 +75,7 @@ $(document).ready(function(){
     }
 
 
-    $(document).on('click', '.content#dashboard_content .habits ul li #habit_middle ul li', function(){ 
+    $(document).on('click', '.content#dashboard_content .habits ul li #habit_middle ul li', function(){
         console.log("clicked");
         var posting = false;
         var dayClicked = $(this).index();
@@ -89,10 +93,12 @@ $(document).ready(function(){
             })
             .then(function (response) {
                 posting=false;
-                if(response.data == "added"){
+                if(response.data == "completed"){
                     $(`.content#dashboard_content .habits ul li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ddffdd");
-                } else {
+                } else if (response.data == "failed"){
                     $(`.content#dashboard_content .habits ul li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ffdddd");
+                } else {
+                    $(`.content#dashboard_content .habits ul li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#fff");
                 }
             })
             .catch(function (error) {
