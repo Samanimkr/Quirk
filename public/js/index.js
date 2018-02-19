@@ -127,4 +127,70 @@ $(document).ready(function(){
         $(".StatsModalBackground").fadeIn(animSpeed);
     });
 
+    $(".StatsModalBackground").click(function(){
+        $(".StatsModal").hide(animSpeed);
+        $(".StatsModalBackground").fadeOut(animSpeed);
+    });
+
+
+
+    // ======================================{ Stats Page }===========================================]
+    if (window.location.pathname.substr(0,6) == "/stats"){
+
+        var habit_id = window.location.pathname.substr(7,24)
+        axios.get('/gethabits')
+        .then(response => loadCharts(response.data))
+        .catch(e => {
+            console.log(e);
+        });
+
+
+    }
+
+
+    function loadCharts(data){
+        var index = data.findIndex(i => i._id == habit_id)
+        var habit = data[index];
+        var stats = {
+            daysCompleted: habit.datesCompleted.length,
+            daysFailed: habit.datesFailed.length,
+            // daysMarked: stats.daysCompleted + stats.daysFailed,
+            totalDays: habit.weekly_goal * habit.num_of_weeks
+        }
+        stats.daysMarked = stats.daysCompleted + stats.daysFailed;
+        stats.successRate = (stats.daysCompleted / stats.daysMarked)*100;
+
+        console.log(stats);
+
+        Chart.defaults.global.defaultFontFamily = "Rubik";
+
+        var ProgressChart = new Chart(mychart, {
+            type: 'doughnut',
+            data: {
+                labels: ["completed", "failed", "Not Yet Marked"],
+                datasets: [{
+                    data: [stats.daysCompleted, stats.daysFailed, (stats.totalDays-stats.daysMarked)],
+                    backgroundColor: ["#4CFF7F", "#FF4C7F", "#f3f3f3"],
+                    borderWidth: 1,
+                    borderColor: "#aaa"
+                }]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: `Progress To Completing ${stats.totalDays} Days`,
+                    fontSize: 18
+                }
+            }
+        });
+    }
+
+    function calculateStats(habit){
+        var daysCompleted = habit.datesCompleted.length;
+        var daysFailed = habit.datesFailed.length;
+        var totalDays = daysCompleted + daysFailed;
+
+
+    }
+
 });

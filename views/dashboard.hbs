@@ -46,8 +46,18 @@
 				</select>
 			</li>
 			<li>
-				<label for="habitDesc">Total Number of Weeks:</label>
-				<input type="text" name="habitName" placeholder="5" pattern="[0-9.]+" required/>
+				<label for="numOfWeeks">Total Number of Weeks:</label>
+				<input type="text" name="numOfWeeks" placeholder="5" pattern="[0-9.]+" max="52" required/>
+			</li>
+			<li>
+				<label for="colour">Colour:</label>
+				<select name="colour">
+					<option value="#FFFFFF">White</option>
+					<option value="#FFAA7D">Orange</option>
+					<option value="#DC6E6E">Red</option>
+					<option value="#8FE08E">Green</option>
+					<option value="#64C4E0">Blue</option>
+				</select>
 			</li>
 			<li>
 				<input type="submit" value="Add Habit" />
@@ -55,12 +65,13 @@
 		</ul>
 	</form>
 	</div>
+
     <div class="habits">
 		{{#if habits}}
 	        <ul id="habits_ul">
 				{{#each habits}}
 		            <li id="HabitID_{{this._id}}">
-		                <div id="habit_top">
+		                <div id="habit_top" style="background-color: {{this.colour}}">
 		                    <h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
 		                    <badge>Edit</badge>
 		                    <badge>Stats</badge>

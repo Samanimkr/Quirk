@@ -56,7 +56,9 @@ module.exports = (app) => {
       owner: req.session.user,
       habit_name: req.body.habitName,
       habit_desc: req.body.habitDesc,
-      weekly_goal: req.body.weeklyGoal
+      weekly_goal: req.body.weeklyGoal,
+	  num_of_weeks: req.body.numOfWeeks,
+	  colour: req.body.colour
     }
 
 	var habit = new Habit(newHabit);

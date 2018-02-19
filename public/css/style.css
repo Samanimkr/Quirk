@@ -328,6 +328,7 @@ header#dashboard_header .current_user img {
     width: 100%;
     display: flex;
     justify-content: space-around;
+    border-bottom: 1px solid #ddd;
 }
 
 .content#stats_content ul li{
@@ -349,6 +350,11 @@ header#dashboard_header .current_user img {
 
 .content#stats_content ul li p{
     font-size: 15px
+}
+
+.content#stats_content canvas#mychart {
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 
