@@ -87,12 +87,14 @@ $(document).ready(function(){
         // Send a POST request
         if(!posting){
             posting=true;
+            $(".content#dashboard_content .habits ul li #habit_middle ul li").attr("disabled", true);
             axios.post('/updatehabit', {
                 habit_id: id,
                 date: date
             })
             .then(function (response) {
                 posting=false;
+                $(".content#dashboard_content .habits ul li #habit_middle ul li").attr("disabled", false);
                 if(response.data == "completed"){
                     $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ddffdd");
                 } else if (response.data == "failed"){
@@ -122,7 +124,7 @@ $(document).ready(function(){
         return `${dd}/${mm}/${yyyy}`;
     }
 
-    $(".nav_links ul li:nth-of-type(2) a").click(function(){
+    $("#nav_stats_link").click(function(){
         $(".StatsModal").show(animSpeed);
         $(".StatsModalBackground").fadeIn(animSpeed);
     });
@@ -154,22 +156,26 @@ $(document).ready(function(){
         var stats = {
             daysCompleted: habit.datesCompleted.length,
             daysFailed: habit.datesFailed.length,
-            // daysMarked: stats.daysCompleted + stats.daysFailed,
             totalDays: habit.weekly_goal * habit.num_of_weeks
         }
         stats.daysMarked = stats.daysCompleted + stats.daysFailed;
-        stats.successRate = (stats.daysCompleted / stats.daysMarked)*100;
+        stats.successRate = Math.round((stats.daysCompleted/stats.daysMarked)*100);
+        stats.daysLeft = stats.totalDays-stats.daysMarked < 0 ? 0 : stats.totalDays-stats.daysMarked;
 
-        console.log(stats);
+        // document.getElementById("#current_streak").innerText = "15";
+        // document.getElementById("#max_streak").innerText = "33";
+        document.getElementById("#success_rate").innerText = stats.successRate + "%";
+        document.getElementById("#total_days").innerText = stats.daysMarked;
+
 
         Chart.defaults.global.defaultFontFamily = "Rubik";
 
         var ProgressChart = new Chart(mychart, {
             type: 'doughnut',
             data: {
-                labels: ["completed", "failed", "Not Yet Marked"],
+                labels: ["completed", "failed", "days left"],
                 datasets: [{
-                    data: [stats.daysCompleted, stats.daysFailed, (stats.totalDays-stats.daysMarked)],
+                    data: [stats.daysCompleted, stats.daysFailed, stats.daysLeft],
                     backgroundColor: ["#4CFF7F", "#FF4C7F", "#f3f3f3"],
                     borderWidth: 1,
                     borderColor: "#aaa"
@@ -183,14 +189,17 @@ $(document).ready(function(){
                 }
             }
         });
+
+        console.log(habit.datesCompleted[0]);
+        // var array = habit.datesCompleted.sort(function(a,b){
+        //     var c = new Date(a.date);
+        //     var d = new Date(b.date);
+        //     return c-d;
+        // });
+
+        // console.log(array);
+
     }
 
-    function calculateStats(habit){
-        var daysCompleted = habit.datesCompleted.length;
-        var daysFailed = habit.datesFailed.length;
-        var totalDays = daysCompleted + daysFailed;
-
-
-    }
 
 });

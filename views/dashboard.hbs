@@ -14,9 +14,9 @@
     <ul>
       <section class="nav_section_divider">Main</section>
       <li><a><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
-      <li><a><i class="fas fa-chart-line"></i> Statistics</a></li>
+      <li><a id="nav_stats_link"><i class="fas fa-chart-line"></i> Statistics</a></li>
       <section class="nav_section_divider">Settings</section>
-      <li><a href="/login"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+      <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
   </div>
 </nav>
@@ -74,7 +74,7 @@
 		                <div id="habit_top" style="background-color: {{this.colour}}">
 		                    <h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
 		                    <badge>Edit</badge>
-		                    <badge>Stats</badge>
+		                    <badge><a href="/stats/{{this._id}}">Stats</a></badge>
 		                </div>
 		                <div id="habit_middle">
 		                    <ul>
@@ -89,11 +89,11 @@
 </div>
 
 <div class="StatsModal">
-	<h3>Select a habit to see the stats for it:</h3>
+	<h3>Select a habit</h3>
 	{{#if habits}}
 		<ul>
 			{{#each habits}}
-				<li><a href="/stats/{{this._id}}">{{this.habit_name}}</a></li>
+				<li><a href="/stats/{{this._id}}" style="background-color: {{this.colour}}">{{this.habit_name}}</a></li>
 			{{/each}}
 		</ul>
 	{{/if}}

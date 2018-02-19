@@ -1,7 +1,6 @@
 <header id="dashboard_header">
 	<span>{{habit.habit_name}} Statistics</span>
 	<div class="current_user right">
-	  <!-- <span>SM</span> -->
 	  <img src="{{user.photoUrl}}" />
 	  <span>{{user.name}}</span>
 	</div>
@@ -11,11 +10,11 @@
   <div class="nav_header"><i class="fa fa-bolt" aria-hidden="true"></i> Quirk</div>
   <div class="nav_links">
     <ul>
-      <section class="nav_section_divider">Main</section>
-      <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
-      <li><a><i class="fas fa-chart-line"></i> Statistics</a></li>
-      <section class="nav_section_divider">Settings</section>
-      <li><a href="/login"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+		<section class="nav_section_divider">Main</section>
+		<li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+		<li><a id="nav_stats_link"><i class="fas fa-chart-line"></i> Statistics</a></li>
+		<section class="nav_section_divider">Settings</section>
+		<li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
   </div>
 </nav>
@@ -23,20 +22,20 @@
 <div class="content" id="stats_content">
 	<ul>
 		<li>
-			<h3>13</h3>
+			<h3 id="#current_streak">{{stats.currentStreak}}</h3>
 			<p>Current Streak</p>
 		</li>
 		<li>
-			<h3>44</h3>
+			<h3 id="#max_streak">{{stats.maxStreak}}</h3>
 			<p>Max Streak</p>
 		</li>
 		<li>
-			<h3>65%</h3>
+			<h3 id="#success_rate"></h3>
 			<p>Success Rate</p>
 		</li>
 		<li>
-			<h3>109</h3>
-			<p>Total</p>
+			<h3 id="#total_days"></h3>
+			<p>Total Days</p>
 		</li>
 	</ul>
 	<canvas id="mychart"></canvas>

@@ -76,6 +76,7 @@ nav .nav_links ul {
 nav .nav_links ul li {
   flex: 1;
   list-style: none;
+  cursor: pointer;
 }
 
 nav .nav_links ul li a {
@@ -297,10 +298,31 @@ header#dashboard_header .current_user img {
     z-index: 15;
     background-color: #fff;
     width: 40%;
-    height: 400px;
+    text-align: center;
     box-shadow: 1px 0 18px #555;
     border-radius: 4px;
-    overflow-y: scroll;
+    padding-top: 5px;
+    font-size: 16px;
+    /* overflow-y: scroll; */
+}
+
+.StatsModal ul {
+    width: 100%;
+    padding: 10px;
+}
+
+.StatsModal ul li {
+    height: 30px;
+    background-color: #fff;
+    margin-bottom: 7px;
+    box-shadow: 0 0 5px #ccc;
+}
+
+.StatsModal ul li a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    padding-top: 7px;
 }
 
 .StatsModalBackground {
