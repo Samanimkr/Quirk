@@ -48,13 +48,15 @@ module.exports = (app) => {
 
 
         User.findOne({ '_id': LoggedInUser }, function (err, user) {
-			Habit.findOne({'_id': habit_id}, async function(err, habit){
+			Habit.find({'owner': LoggedInUser}, async function(err, habits){
+				habit = await habits[habits.findIndex(i => i._id == habit_id)];
 				await sortHabit(habit);
 				var stats = await getStreaks(habit);
 				res.render('statistics', {
 					title: "Quirk - Statistics",
 					user: user,
 					habit: habit,
+					habits: habits,
 					stats: stats
 				});
 

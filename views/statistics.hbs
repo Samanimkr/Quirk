@@ -85,3 +85,15 @@
 	</ul>
 	<canvas id="mychart"></canvas>
 </div>
+
+<div class="StatsModal">
+	<h3>Select a habit</h3>
+	{{#if habits}}
+		<ul>
+			{{#each habits}}
+				<li><a href="/stats/{{this._id}}" style="background-color: {{this.colour}}">{{this.habit_name}}</a></li>
+			{{/each}}
+		</ul>
+	{{/if}}
+</div>
+<div class="StatsModalBackground"></div>
