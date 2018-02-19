@@ -1,11 +1,10 @@
-<header id="dashboard_header">
+<header>
 	<span>Dashboard</span>
 	<div class="current_user right">
-	  <!-- <span>SM</span> -->
 	  <img src="{{user.photoUrl}}" />
 	  <span>{{user.name}}</span>
 	</div>
-	<a class="right" id="add_habit"><i class="fa fa-plus" aria-hidden="true"></i></a>
+	<a class="right" id="add_habit"><i class="fas fa-plus"></i></a>
 </header>
 
 <nav>
@@ -22,48 +21,48 @@
 </nav>
 
 <div class="content" id="dashboard_content">
-	<div class="add_habit_tab">
-	<form method="POST" action="/addhabit">
-		<ul>
-			<li>
-				<label for="habitName">Habit Name:</label>
-				<input type="text" name="habitName" placeholder="e.g. Gym" required/>
-			</li>
-			<li>
-				<label for="habitDesc">Habit Description:</label>
-				<input type="text" name="habitDesc" placeholder="Workout for 1 hour and do 15mins cardio." />
-			</li>
-			<li>
-				<label for="weeklyGoal">Weekly goal:</label>
-				<select name="weeklyGoal">
-					<option value="1">Once a week</option>
-					<option value="2">2 times a week</option>
-					<option value="3">3 times a week</option>
-					<option value="4">4 times a week</option>
-					<option value="5">5 times a week</option>
-					<option value="6">6 times a week</option>
-					<option value="7">Every day</option>
-				</select>
-			</li>
-			<li>
-				<label for="numOfWeeks">Total Number of Weeks:</label>
-				<input type="text" name="numOfWeeks" placeholder="5" pattern="[0-9.]+" max="52" required/>
-			</li>
-			<li>
-				<label for="colour">Colour:</label>
-				<select name="colour">
-					<option value="#FFFFFF">White</option>
-					<option value="#FFAA7D">Orange</option>
-					<option value="#DC6E6E">Red</option>
-					<option value="#8FE08E">Green</option>
-					<option value="#64C4E0">Blue</option>
-				</select>
-			</li>
-			<li>
-				<input type="submit" value="Add Habit" />
-			</li>
-		</ul>
-	</form>
+	<div class="habit_tab">
+		<form method="POST" action="/addhabit">
+			<ul>
+				<li>
+					<label for="habitName">Habit Name:</label>
+					<input type="text" name="habitName" placeholder="e.g. Gym" required/>
+				</li>
+				<li>
+					<label for="habitDesc">Habit Description:</label>
+					<input type="text" name="habitDesc" placeholder="Workout for 1 hour and do 15mins cardio." />
+				</li>
+				<li>
+					<label for="weeklyGoal">Weekly goal:</label>
+					<select name="weeklyGoal">
+						<option value="1">Once a week</option>
+						<option value="2">2 times a week</option>
+						<option value="3">3 times a week</option>
+						<option value="4">4 times a week</option>
+						<option value="5">5 times a week</option>
+						<option value="6">6 times a week</option>
+						<option value="7">Every day</option>
+					</select>
+				</li>
+				<li>
+					<label for="numOfWeeks">Total Number of Weeks:</label>
+					<input type="text" name="numOfWeeks" placeholder="5" pattern="[0-9.]+" max="52" required/>
+				</li>
+				<li>
+					<label for="colour">Colour:</label>
+					<select name="colour">
+						<option value="#FFFFFF">White</option>
+						<option value="#FFAA7D">Orange</option>
+						<option value="#DC6E6E">Red</option>
+						<option value="#8FE08E">Green</option>
+						<option value="#64C4E0">Blue</option>
+					</select>
+				</li>
+				<li>
+					<input type="submit" value="Add Habit" />
+				</li>
+			</ul>
+		</form>
 	</div>
 
     <div class="habits">
@@ -73,8 +72,7 @@
 		            <li id="HabitID_{{this._id}}">
 		                <div id="habit_top" style="background-color: {{this.colour}}">
 		                    <h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
-		                    <badge>Edit</badge>
-		                    <badge><a href="/stats/{{this._id}}">Stats</a></badge>
+		                    <badge><a href="/stats/{{this._id}}">Check Stats</a></badge>
 		                </div>
 		                <div id="habit_middle">
 		                    <ul>
@@ -98,5 +96,4 @@
 		</ul>
 	{{/if}}
 </div>
-
 <div class="StatsModalBackground"></div>

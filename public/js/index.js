@@ -23,8 +23,12 @@ $(document).ready(function(){
   var animSpeed = 200;
 
   //When 'Add habit' button is pressed => drop down menu
-  $('header#dashboard_header a#add_habit').click(function(){
-    $('.content#dashboard_content .add_habit_tab').slideToggle(animSpeed); //Slide toggle the drop down menu
+  $('header a#add_habit').click(function(){
+    $('.content#dashboard_content .habit_tab').slideToggle(animSpeed); //Slide toggle the drop down menu
+  });
+
+  $('header a#edit_habit').click(function(){
+    $('.content#stats_content .habit_tab').slideToggle(animSpeed); //Slide toggle the drop down menu
   });
 
     getHabits();
@@ -162,13 +166,13 @@ $(document).ready(function(){
         stats.successRate = Math.round((stats.daysCompleted/stats.daysMarked)*100);
         stats.daysLeft = stats.totalDays-stats.daysMarked < 0 ? 0 : stats.totalDays-stats.daysMarked;
 
-        // document.getElementById("#current_streak").innerText = "15";
-        // document.getElementById("#max_streak").innerText = "33";
+
         document.getElementById("#success_rate").innerText = stats.successRate + "%";
         document.getElementById("#total_days").innerText = stats.daysMarked;
 
 
         Chart.defaults.global.defaultFontFamily = "Rubik";
+        // Chart.defaults.doughnut.animation.animateRotate = false;
 
         var ProgressChart = new Chart(mychart, {
             type: 'doughnut',
@@ -189,16 +193,6 @@ $(document).ready(function(){
                 }
             }
         });
-
-        console.log(habit.datesCompleted[0]);
-        // var array = habit.datesCompleted.sort(function(a,b){
-        //     var c = new Date(a.date);
-        //     var d = new Date(b.date);
-        //     return c-d;
-        // });
-
-        // console.log(array);
-
     }
 
 

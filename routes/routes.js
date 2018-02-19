@@ -43,7 +43,7 @@ module.exports = (app) => {
   	});
 
 	app.get('/stats/:id', sessionChecker, function (req, res, next) {
-        var LoggedInUser = req.session.user;
+		var LoggedInUser = req.session.user;
 		var habit_id = req.params.id;
 
 
@@ -57,8 +57,33 @@ module.exports = (app) => {
 					habit: habit,
 					stats: stats
 				});
+
 			});
         });
+  	});
+
+	app.post('/stats/:id/edit', sessionChecker, function(req, res, next){
+		var LoggedInUser = req.session.user;
+		var habit_id = req.params.id;
+
+		Habit.findOne({'_id': habit_id}, function(err, habit){
+			habit.habit_name = req.body.habitName;
+			habit.habit_desc = req.body.habitDesc;
+			habit.weekly_goal = req.body.weeklyGoal;
+			habit.num_of_weeks = req.body.numOfWeeks;
+			habit.colour = req.body.colour;
+			habit.save();
+			res.redirect(`/stats/${habit_id}`);
+		});
+	});
+
+	app.get('/stats/:id/delete', sessionChecker, function (req, res, next) {
+		var LoggedInUser = req.session.user;
+		var habit_id = req.params.id;
+
+		Habit.findOne({'_id': habit_id}).remove().exec().then(() => {
+			res.redirect("/");
+		})
   	});
 
   app.post('/addhabit', function(req, res, next){
@@ -80,6 +105,7 @@ module.exports = (app) => {
       res.redirect('/');
     });
   });
+
 
   app.get('/gethabits', function(req,res){
 	  Habit.find({owner: req.session.user}, function(err, habits){
@@ -128,7 +154,7 @@ module.exports = (app) => {
  	  });
 	  habit.save();
   }
-  
+
   async function getStreaks(habit){
 	  var streak = 0, maxStreak = 0, currentStreak=-1;
 	  var failedDate, completedDate;

@@ -1,9 +1,11 @@
-<header id="dashboard_header">
+<header>
 	<span>{{habit.habit_name}} Statistics</span>
 	<div class="current_user right">
 	  <img src="{{user.photoUrl}}" />
 	  <span>{{user.name}}</span>
 	</div>
+	<a class="right" id="edit_habit"><i class="fas fa-pencil-alt"></i></a>
+	<a href="/stats/{{habit._id}}/delete" class="right"><i class="fas fa-trash-alt"></i></a>
 </header>
 
 <nav>
@@ -20,6 +22,49 @@
 </nav>
 
 <div class="content" id="stats_content">
+	<div class="habit_tab">
+		<form method="POST" action="/stats/{{habit._id}}/edit">
+			<ul>
+				<li>
+					<label for="habitName">Habit Name:</label>
+					<input type="text" name="habitName" placeholder="e.g. Gym" value="{{habit.habit_name}}" required/>
+				</li>
+				<li>
+					<label for="habitDesc">Habit Description:</label>
+					<input type="text" name="habitDesc" placeholder="Workout for 1 hour and do 15mins cardio." value="{{habit.habit_desc}}" />
+				</li>
+				<li>
+					<label for="weeklyGoal">Weekly goal:</label>
+					<select name="weeklyGoal">
+						<option value="1">Once a week</option>
+						<option value="2">2 times a week</option>
+						<option value="3">3 times a week</option>
+						<option value="4">4 times a week</option>
+						<option value="5">5 times a week</option>
+						<option value="6">6 times a week</option>
+						<option value="7">Every day</option>
+					</select>
+				</li>
+				<li>
+					<label for="numOfWeeks">Total Number of Weeks:</label>
+					<input type="text" name="numOfWeeks" placeholder="5" pattern="[0-9.]+" max="52" value="{{habit.num_of_weeks}}" required/>
+				</li>
+				<li>
+					<label for="colour">Colour:</label>
+					<select name="colour">
+						<option value="#FFFFFF">White</option>
+						<option value="#FFAA7D">Orange</option>
+						<option  value="#DC6E6E">Red</option>
+						<option value="#8FE08E">Green</option>
+						<option value="#64C4E0">Blue</option>
+					</select>
+				</li>
+				<li>
+					<input type="submit" value="Update Habit" />
+				</li>
+			</ul>
+		</form>
+	</div>
 	<ul>
 		<li>
 			<h3 id="#current_streak">{{stats.currentStreak}}</h3>
