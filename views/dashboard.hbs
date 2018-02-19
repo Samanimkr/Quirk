@@ -13,8 +13,8 @@
   <div class="nav_links">
     <ul>
       <section class="nav_section_divider">Main</section>
-      <li><a href=""><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
-      <li><a href="/statistics"><i class="fas fa-chart-line"></i> Statistics</a></li>
+      <li><a><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+      <li><a><i class="fas fa-chart-line"></i> Statistics</a></li>
       <section class="nav_section_divider">Settings</section>
       <li><a href="/login"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
@@ -46,6 +46,10 @@
 				</select>
 			</li>
 			<li>
+				<label for="habitDesc">Total Number of Weeks:</label>
+				<input type="text" name="habitName" placeholder="5" pattern="[0-9.]+" required/>
+			</li>
+			<li>
 				<input type="submit" value="Add Habit" />
 			</li>
 		</ul>
@@ -72,3 +76,16 @@
 		{{/if}}
     </div>
 </div>
+
+<div class="StatsModal">
+	<h3>Select a habit to see the stats for it:</h3>
+	{{#if habits}}
+		<ul>
+			{{#each habits}}
+				<li><a href="/stats/{{this._id}}">{{this.habit_name}}</a></li>
+			{{/each}}
+		</ul>
+	{{/if}}
+</div>
+
+<div class="StatsModalBackground"></div>

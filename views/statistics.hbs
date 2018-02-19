@@ -1,11 +1,10 @@
 <header id="dashboard_header">
-	<span>Statistics</span>
+	<span>{{habit.habit_name}} Statistics</span>
 	<div class="current_user right">
 	  <!-- <span>SM</span> -->
 	  <img src="{{user.photoUrl}}" />
 	  <span>{{user.name}}</span>
 	</div>
-	<a class="right" id="add_habit"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </header>
 
 <nav>
@@ -14,7 +13,7 @@
     <ul>
       <section class="nav_section_divider">Main</section>
       <li><a href="/"><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
-      <li><a href=""><i class="fas fa-chart-line"></i> Statistics</a></li>
+      <li><a><i class="fas fa-chart-line"></i> Statistics</a></li>
       <section class="nav_section_divider">Settings</section>
       <li><a href="/login"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
@@ -22,5 +21,22 @@
 </nav>
 
 <div class="content" id="stats_content">
-	hi
+	<ul>
+		<li>
+			<h3>13</h3>
+			<p>Current Streak</p>
+		</li>
+		<li>
+			<h3>44</h3>
+			<p>Max Streak</p>
+		</li>
+		<li>
+			<h3>65%</h3>
+			<p>Success Rate</p>
+		</li>
+		<li>
+			<h3>109</h3>
+			<p>Total</p>
+		</li>
+	</ul>
 </div>

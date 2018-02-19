@@ -36,15 +36,16 @@ module.exports = (app) => {
         });
   	});
 
-	app.get('/statistics', sessionChecker, function (req, res, next) {
+	app.get('/stats/:id', sessionChecker, function (req, res, next) {
         var LoggedInUser = req.session.user;
+		var habit_id = req.params.id;
 
         User.findOne({ '_id': LoggedInUser }, function (err, user) {
-			Habit.find({'owner': LoggedInUser}, function(err, habits){
+			Habit.findOne({'_id': habit_id}, function(err, habit){
 				res.render('statistics', {
 					title: "Quirk - Statistics",
 					user: user,
-					habits: habits
+					habit: habit
 				});
 			});
         });

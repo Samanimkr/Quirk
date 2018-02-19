@@ -289,6 +289,69 @@ header#dashboard_header .current_user img {
     color: #ddd;
 }
 
+.StatsModal {
+    display: none;
+    position: absolute;
+    top: 100px;
+    left: 30%;
+    z-index: 15;
+    background-color: #fff;
+    width: 40%;
+    height: 400px;
+    box-shadow: 1px 0 18px #555;
+    border-radius: 4px;
+    overflow-y: scroll;
+}
+
+.StatsModalBackground {
+    display: none;
+    background-color: #000;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.4;
+    position: absolute;
+    z-index: 14;
+    top: 0;
+    left: 0;
+}
+/*============================================================{  STATS  }===========================================================*/
+
+.content#stats_content {
+    top: 60px;
+    left: 200px;
+    width: calc(100% - 200px);
+    height: calc(100vh - 60px);
+}
+
+.content#stats_content ul {
+    padding: 20px 50px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.content#stats_content ul li{
+    flex: 1;
+    height: 80px;
+    max-width: 170px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 1px 0 10px #ccc;
+    border-radius: 3px;
+    padding-top: 18px;
+}
+
+.content#stats_content ul li h3{
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #66ffaa;
+}
+
+.content#stats_content ul li p{
+    font-size: 15px
+}
+
+
 /*============================================================{  LOGIN  }===========================================================*/
 
 header#login_header {

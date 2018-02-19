@@ -67,11 +67,11 @@ $(document).ready(function(){
         var currentDay = (today.getDay() > 1) ? today.getDay()-2 : today.getDay()-2+7; //gets the position of the name in the array days
 
         for (var i = 1; i <= 5; i++) {
-            $(`.content#dashboard_content .habits ul li #habit_middle ul li:nth-of-type(${i})`).text(days[currentDay]);
+            $(`li #habit_middle ul li:nth-of-type(${i})`).text(days[currentDay]);
             currentDay++;
             if (currentDay > 6) currentDay-=7;
         }
-        $(`.content#dashboard_content .habits ul li #habit_middle ul li:nth-of-type(3)`).text("Today");
+        $(`li #habit_middle ul li:nth-of-type(3)`).text("Today");
     }
 
 
@@ -94,11 +94,11 @@ $(document).ready(function(){
             .then(function (response) {
                 posting=false;
                 if(response.data == "completed"){
-                    $(`.content#dashboard_content .habits ul li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ddffdd");
+                    $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ddffdd");
                 } else if (response.data == "failed"){
-                    $(`.content#dashboard_content .habits ul li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ffdddd");
+                    $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ffdddd");
                 } else {
-                    $(`.content#dashboard_content .habits ul li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#fff");
+                    $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#fff");
                 }
             })
             .catch(function (error) {
@@ -121,4 +121,10 @@ $(document).ready(function(){
 
         return `${dd}/${mm}/${yyyy}`;
     }
+
+    $(".nav_links ul li:nth-of-type(2) a").click(function(){
+        $(".StatsModal").show(animSpeed);
+        $(".StatsModalBackground").fadeIn(animSpeed);
+    });
+
 });
