@@ -54,6 +54,9 @@ module.exports = (app) => {
             }).catch(err => {
               console.log("err: "+err);
             });
+          } else {
+              user.photoUrl = profile.photoUrl;
+              user.save();
           }
         });
 
