@@ -6,15 +6,16 @@ module.exports = (app) => {
 
 	// middleware function to check for logged-in users
 	var sessionChecker = (req, res, next) => {
-	  if (!req.session.user) {
+	  if (!req.session.user) { //if user isn't logged in then they get redirected to the login page, otherwise, they connect to the page
 		res.redirect('/login');
 	  } else {
 		next();
 	  }
 	};
 
+    //user requesting for '/login' using the http GET method
     app.get('/login', function (req, res, next) {
-        if (req.session.user) {
+        if (req.session.user) { //if user is logged in then redirect them to the dashboard, otherwise render the login page
             res.redirect("/");
         } else {
             res.render('login', {
@@ -23,14 +24,16 @@ module.exports = (app) => {
         }
     });
 
+    //user requesting for '/logout' using the http GET method
 	app.get('/logout', function (req, res, next) {
-		req.session.destroy();
+		req.session.destroy(); //destroy the login session
 		res.redirect('/login');
     });
 
     app.get('/', sessionChecker, function (req, res, next) {
-        var LoggedInUser = req.session.user;
+        var LoggedInUser = req.session.user; //getting the user's id from the login session
 
+        //getting the user's profile and habits from database and sending it to the handlebars page 
         User.findOne({ '_id': LoggedInUser }, function (err, user) {
 			Habit.find({'owner': LoggedInUser}, function(err, habits){
 				res.render('dashboard', {
@@ -41,19 +44,19 @@ module.exports = (app) => {
 			});
         });
   	});
-
+    //user requesting for the stats page for a habit using the http GET method
 	app.get('/stats/:id', sessionChecker, function (req, res, next) {
 		var LoggedInUser = req.session.user;
-		var habit_id = req.params.id;
+		var habit_id = req.params.id; //getting the habit_id from the url
 
 
         User.findOne({ '_id': LoggedInUser }, function (err, user) {
-			Habit.find({'owner': LoggedInUser}, async function(err, habits){
-				habit = await habits[habits.findIndex(i => i._id == habit_id)];
-				await sortHabit(habit);
-				var stats = await getStreaks(habit);
-				res.render('statistics', {
-					title: "Quirk - Statistics",
+			Habit.find({'owner': LoggedInUser}, async function(err, habits){ //async stops this function from being synchronous
+				habit = await habits[habits.findIndex(i => i._id == habit_id)]; //finding the habit requested by searching through habits
+				await sortHabit(habit); //wait for the result from sorthHabit()
+				var stats = await getStreaks(habit); //wait for result from getStreaks()
+                res.render('statistics', {
+                    title: "Quirk - " + habit.habit_name + " Statistics",
 					user: user,
 					habit: habit,
 					habits: habits,
