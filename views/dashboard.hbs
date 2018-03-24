@@ -66,24 +66,25 @@
 	</div>
 
     <div class="habits">
-		{{#if habits}}
+			{{#if habits}} <!--run code below if habits exist-->
 	        <ul id="habits_ul">
-				{{#each habits}}
-		            <li id="HabitID_{{this._id}}">
-		                <div id="habit_top" style="background-color: {{this.colour}}">
-		                    <h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
-		                    <badge><a href="/stats/{{this._id}}">Check Stats</a></badge>
-		                </div>
-		                <div id="habit_middle">
-		                    <ul>
-		                        <li></li><li></li><li></li><li></li><li></li>
-		                    </ul>
-		                </div>
-		            </li>
-				{{/each}}
-	        </ul>
-		{{/if}}
+							{{#each habits}} <!--forloop for each habit-->
+			            <li id="HabitID_{{this._id}}">
+			                <div id="habit_top" style="background-color: {{this.colour}}"> <!--setting the colour-->
+			                    <h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
+			                    <badge><a href="/stats/{{this._id}}">Check Stats</a></badge> <!--check stats link-->
+			                </div>
+			                <div id="habit_middle">
+			                    <ul>
+			                        <li></li><li></li><li></li><li></li><li></li> <!--This is where the days will be shown-->
+			                    </ul>
+			                </div>
+			            </li>
+							{{/each}}
+        	</ul>
+			{{/if}}
     </div>
+
 </div>
 
 <div class="StatsModal">
