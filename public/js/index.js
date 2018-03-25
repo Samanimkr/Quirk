@@ -84,38 +84,30 @@ $(document).ready(function() {
 
 
     $(document).on('click', '.content#dashboard_content .habits ul li #habit_middle ul li', function() {
-        console.log("clicked");
-        var posting = false;
         var dayClicked = $(this).index();
         var date = getDate(dayClicked);
         var habit_name = $(this).parent().parent().parent().attr('id');
         var id = habit_name.substr(8);
 
-        console.log("date: " + date);
         // Send a POST request
-        if (!posting) {
-            posting = true;
-            $(".content#dashboard_content .habits ul li #habit_middle ul li").attr("disabled", true);
-            axios.post('/updatehabit', {
-                    habit_id: id,
-                    date: date
-                })
-                .then(function(response) {
-                    posting = false;
-                    $(".content#dashboard_content .habits ul li #habit_middle ul li").attr("disabled", false);
-                    if (response.data == "completed") {
-                        $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ddffdd");
-                    } else if (response.data == "failed") {
-                        $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ffdddd");
-                    } else {
-                        $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#fff");
-                    }
-                })
-                .catch(function(error) {
-                    console.log(error);
-                });
-        }
-
+        $(".content#dashboard_content .habits ul li #habit_middle ul li").attr("disabled", true);
+        axios.post('/updatehabit', {
+                habit_id: id,
+                date: date
+            })
+            .then(function(response) {
+                $(".content#dashboard_content .habits ul li #habit_middle ul li").attr("disabled", false);
+                if (response.data == "completed") {
+                    $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ddffdd");
+                } else if (response.data == "failed") {
+                    $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#ffdddd");
+                } else {
+                    $(`li#${habit_name} #habit_middle ul li:nth-of-type(${dayClicked+1})`).css("backgroundColor", "#fff");
+                }
+            })
+            .catch(function(error) {
+                console.log(error);
+            });
     })
 
     function getDate(dayClicked) {

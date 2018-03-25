@@ -5,7 +5,7 @@ body {
   padding: 0;
 }
 
-h1,h2,h3,h4,h5 {
+h1, h2, h3, h4, h5 {
   margin: 0;
 }
 
@@ -25,12 +25,12 @@ header {
   top: 0;
   right: 0;
   background-color: #fff;
-  -webkit-box-shadow: 0px 1px 4px 0px rgba(204,204,204,1);
-  -moz-box-shadow: 0px 1px 4px 0px rgba(204,204,204,1);
-  box-shadow: 0px 1px 4px 0px rgba(204,204,204,1);
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(204, 204, 204, 1);
+  -moz-box-shadow: 0px 1px 4px 0px rgba(204, 204, 204, 1);
+  box-shadow: 0px 1px 4px 0px rgba(204, 204, 204, 1);
 }
 
-header span{
+header span {
   display: inline-block;
   font-size: 18px;
   color: #444;
@@ -46,7 +46,7 @@ header a {
   padding-top: 14px;
   text-align: center;
   font-size: 19px;
-  }
+}
 
 header a:hover {
   background-color: #F3F3F3;
@@ -62,10 +62,9 @@ header .current_user {
   border-radius: 5px 0 0 5px;
 }
 
-header .current_user span{
+header .current_user span {
   padding: 14px 10px;
 }
-
 
 header .current_user img {
   position: absolute;
@@ -73,7 +72,6 @@ header .current_user img {
   border-radius: 5px 0 0 5px;
   height: 45px;
 }
-
 
 nav {
   position: fixed;
@@ -172,7 +170,7 @@ input, select {
 .habit_tab form ul li input, select {
   width: 100%;
   padding-left: 5px;
-  margin-bottom:15px;
+  margin-bottom: 15px;
 }
 
 .habit_tab form ul li select {
@@ -188,19 +186,22 @@ input, select {
 }
 
 /* Placeholder Text Color For The Input Fields*/
+
 .habit_tab form ul li input::-webkit-input-placeholder {
-    color: #ddd;
-}
-.habit_tab form ul li input:-moz-placeholder {
-    color: #ddd;
-}
-.habit_tab form ul li input::-moz-placeholder {
-    color: #ddd;
-}
-.habit_tab form ul li input:-ms-input-placeholder {
-    color: #ddd;
+  color: #ddd;
 }
 
+.habit_tab form ul li input:-moz-placeholder {
+  color: #ddd;
+}
+
+.habit_tab form ul li input::-moz-placeholder {
+  color: #ddd;
+}
+
+.habit_tab form ul li input:-ms-input-placeholder {
+  color: #ddd;
+}
 
 /*============================================================{  DASHBOARD  }===========================================================*/
 
@@ -211,177 +212,177 @@ input, select {
   height: calc(100vh - 60px);
 }
 
-.content#dashboard_content .habits > ul {
-    padding: 15px 0;
+.content#dashboard_content .habits>ul {
+  padding: 15px 0;
 }
 
-.content#dashboard_content .habits > ul > li {
-    margin: 0 auto 20px auto;
-    width: 70%;
-    background-color: #fff;
-    box-shadow: 1px 1px 15px #ccc;
+.content#dashboard_content .habits>ul>li {
+  margin: 0 auto 20px auto;
+  width: 70%;
+  background-color: #fff;
+  box-shadow: 1px 1px 15px #ccc;
 }
 
-.content#dashboard_content .habits > ul > li #habit_top {
-    height:30px;
-    padding: 4px 6px;
+.content#dashboard_content .habits>ul>li #habit_top {
+  height: 30px;
+  padding: 4px 6px;
 }
 
-.content#dashboard_content .habits > ul > li #habit_top h3{
-    display: inline-block;
-    font-size:17px;
-    margin-top: 2px;
+.content#dashboard_content .habits>ul>li #habit_top h3 {
+  display: inline-block;
+  font-size: 17px;
+  margin-top: 2px;
 }
 
-.content#dashboard_content .habits > ul > li #habit_top badge {
-    cursor: pointer;
-    box-sizing: content-box;
-    display: inline-block;
-    font-size: 14px;
-    background-color: rgba(255,255,255,0.3);
-    border: 1px solid rgba(0,0,0,0.2);
-    padding: 3.5px 6px;
-    border-radius: 3px;
-    float: right;
-    margin: 0 5px;
+.content#dashboard_content .habits>ul>li #habit_top badge {
+  cursor: pointer;
+  box-sizing: content-box;
+  display: inline-block;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 3.5px 6px;
+  border-radius: 3px;
+  float: right;
+  margin: 0 5px;
 }
 
-.content#dashboard_content .habits > ul li #habit_middle ul {
-    display: flex;
-    justify-content: space-between;
-    padding: 0;
+.content#dashboard_content .habits>ul li #habit_middle ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
 }
 
-.content#dashboard_content .habits > ul li #habit_middle ul li {
-    cursor: pointer;
-    flex: 1;
-    text-align: center;
-    height: 50px;
-    font-size: 16px;
-    font-weight: 200;
-    padding: 17px 0;
-    border-top: 1px solid #f1f6f6;
-    box-shadow: 0px 0px 1px #aaa;
+.content#dashboard_content .habits>ul li #habit_middle ul li {
+  cursor: pointer;
+  flex: 1;
+  text-align: center;
+  height: 50px;
+  font-size: 16px;
+  font-weight: 200;
+  padding: 17px 0;
+  border-top: 1px solid #f1f6f6;
+  box-shadow: 0px 0px 1px #aaa;
 }
 
-.content#dashboard_content .habits > ul li #habit_middle ul li:hover {
-    background-color: #f1f6f6;
+.content#dashboard_content .habits>ul li #habit_middle ul li:hover {
+  background-color: #f1f6f6;
 }
 
-.content#dashboard_content .habits > ul li #habit_bottom {
-    width: 200px;
-    margin: 0 auto;
-    height: 30px;
+.content#dashboard_content .habits>ul li #habit_bottom {
+  width: 200px;
+  margin: 0 auto;
+  height: 30px;
 }
 
-.content#dashboard_content .habits > ul li #habit_bottom a {
-    display: inline-block;
-    width: 49%;
-    height: 100%;
-    text-align: center;
-    background-color: #f5f5f5;
-    margin: 0;
+.content#dashboard_content .habits>ul li #habit_bottom a {
+  display: inline-block;
+  width: 49%;
+  height: 100%;
+  text-align: center;
+  background-color: #f5f5f5;
+  margin: 0;
 }
 
-.content#dashboard_content .habits > ul li #habit_bottom a#completed {
-    background-color: #17B978;
+.content#dashboard_content .habits>ul li #habit_bottom a#completed {
+  background-color: #17B978;
 }
-.content#dashboard_content .habits > ul li #habit_bottom a#failed {
-    background-color: #F67280;
+
+.content#dashboard_content .habits>ul li #habit_bottom a#failed {
+  background-color: #F67280;
 }
 
 .StatsModal {
-    display: none;
-    position: absolute;
-    top: 100px;
-    left: 30%;
-    z-index: 15;
-    background-color: #fff;
-    width: 40%;
-    text-align: center;
-    box-shadow: 1px 0 18px #555;
-    border-radius: 4px;
-    padding-top: 5px;
-    font-size: 16px;
-    /* overflow-y: scroll; */
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 30%;
+  z-index: 15;
+  background-color: #fff;
+  width: 40%;
+  text-align: center;
+  box-shadow: 1px 0 18px #555;
+  border-radius: 4px;
+  padding-top: 5px;
+  font-size: 16px;
+  /* overflow-y: scroll; */
 }
 
 .StatsModal ul {
-    width: 100%;
-    padding: 10px;
+  width: 100%;
+  padding: 10px;
 }
 
 .StatsModal ul li {
-    height: 40px;
-    background-color: #fff;
-    margin-bottom: 7px;
-    box-shadow: 0 0 5px #ccc;
+  height: 40px;
+  background-color: #fff;
+  margin-bottom: 7px;
+  box-shadow: 0 0 5px #ccc;
 }
 
 .StatsModal ul li a {
-    width: 100%;
-    height: 100%;
-    display: block;
-    padding-top: 12px;
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding-top: 12px;
 }
 
 .StatsModalBackground {
-    display: none;
-    background-color: #000;
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.4;
-    position: absolute;
-    z-index: 14;
-    top: 0;
-    left: 0;
+  display: none;
+  background-color: #000;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0.4;
+  position: absolute;
+  z-index: 14;
+  top: 0;
+  left: 0;
 }
+
 /*============================================================{  STATS  }===========================================================*/
 
 .content#stats_content {
-    top: 60px;
-    left: 200px;
-    width: calc(100% - 200px);
-    height: calc(100vh - 60px);
+  top: 60px;
+  left: 200px;
+  width: calc(100% - 200px);
+  height: calc(100vh - 60px);
 }
 
-.content#stats_content > ul {
-    padding: 20px 50px;
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid #ddd;
+.content#stats_content>ul {
+  padding: 20px 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 1px solid #ddd;
 }
 
-.content#stats_content > ul > li{
-    flex: 1;
-    height: 80px;
-    max-width: 170px;
-    text-align: center;
-    background-color: #fff;
-    box-shadow: 1px 0 10px #ccc;
-    border-radius: 3px;
-    padding-top: 18px;
+.content#stats_content>ul>li {
+  flex: 1;
+  height: 80px;
+  max-width: 170px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 1px 0 10px #ccc;
+  border-radius: 3px;
+  padding-top: 18px;
 }
 
-.content#stats_content > ul > li > h3{
-    font-size: 24px;
-    margin-bottom: 5px;
-    color: #66ffaa;
+.content#stats_content>ul>li>h3 {
+  font-size: 24px;
+  margin-bottom: 5px;
+  color: #66ffaa;
 }
 
-.content#stats_content ul li p{
-    font-size: 15px
+.content#stats_content ul li p {
+  font-size: 15px
 }
 
 .content#stats_content canvas#mychart {
-    max-width: 700px;
-    margin: 0 auto;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-
 /*============================================================{  LOGIN  }===========================================================*/
-
 
 header#login_header {
   width: 100%;
@@ -390,19 +391,19 @@ header#login_header {
   box-shadow: 0px 1px 4px 0px #000;
 }
 
-header#login_header span{
+header#login_header span {
   font-size: 20px;
   color: #08D9D6;
 }
 
-header#login_header a#fb_login_btn{
+header#login_header a#fb_login_btn {
   display: block;
   font-size: 15px;
   padding: 17px;
-  text-align:center;
+  text-align: center;
   width: 300px;
   height: 50px;
-  background-color: rgba(0,0,00,0.05);
+  background-color: rgba(0, 0, 00, 0.05);
   border: 2px solid #3EC1D3;
   color: #3EC1D3;
   margin: 5px;
@@ -431,19 +432,19 @@ header#login_header a#fb_login_btn:hover {
   max-width: 800px;
   padding: 30px 20px;
   line-height: 24px;
-  background-color: rgba(255,255,255,0.75);
+  background-color: rgba(255, 255, 255, 0.75);
   -webkit-box-shadow: 0 1px 7px 0 #888;
   -moz-box-shadow: 0 1px 7px 0 #888;
   box-shadow: 0 1px 15px 0 #888;
   border-radius: 5px;
 }
 
-.content#login_content .about_area h3{
+.content#login_content .about_area h3 {
   text-align: center;
   margin-bottom: 5px;
 }
 
-.content#login_content .about_area p{
+.content#login_content .about_area p {
   font-size: 17px;
   color: #222;
 }
