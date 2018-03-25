@@ -1,27 +1,27 @@
-<header>
+<header> <!-- header with page name, buttons and facebook profile -->
 	<span>Dashboard</span>
 	<div class="current_user right">
-	  <img src="{{user.photoUrl}}" />
-	  <span>{{user.name}}</span>
+		<img src="{{user.photoUrl}}" />
+		<span>{{user.name}}</span>
 	</div>
 	<a class="right" id="add_habit"><i class="fas fa-plus"></i></a>
 </header>
 
-<nav>
-  <div class="nav_header"><i class="fa fa-bolt" aria-hidden="true"></i> Quirk</div>
-  <div class="nav_links">
-    <ul>
-      <section class="nav_section_divider">Main</section>
-      <li><a><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
-      <li><a id="nav_stats_link"><i class="fas fa-chart-line"></i> Statistics</a></li>
-      <section class="nav_section_divider">Settings</section>
-      <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-    </ul>
-  </div>
+<nav> <!-- Navbar with links -->
+	<div class="nav_header"><i class="fa fa-bolt" aria-hidden="true"></i> Quirk</div>
+	<div class="nav_links">
+		<ul>
+			<section class="nav_section_divider">Main</section>
+			<li><a><i class="fa fa-home" aria-hidden="true"></i> Dashboard</a></li>
+			<li><a id="nav_stats_link"><i class="fas fa-chart-line"></i> Statistics</a></li>
+			<section class="nav_section_divider">Settings</section>
+			<li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+		</ul>
+	</div>
 </nav>
 
 <div class="content" id="dashboard_content">
-	<div class="habit_tab">
+	<div class="habit_tab"> <!-- dropdown tab for adding new habits -->
 		<form method="POST" action="/addhabit">
 			<ul>
 				<li>
@@ -65,29 +65,38 @@
 		</form>
 	</div>
 
-    <div class="habits">
-			{{#if habits}} <!--run code below if habits exist-->
-	        <ul id="habits_ul">
-							{{#each habits}} <!--forloop for each habit-->
-			            <li id="HabitID_{{this._id}}">
-			                <div id="habit_top" style="background-color: {{this.colour}}"> <!--setting the colour-->
-			                    <h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
-			                    <badge><a href="/stats/{{this._id}}">Check Stats</a></badge> <!--check stats link-->
-			                </div>
-			                <div id="habit_middle">
-			                    <ul>
-			                        <li></li><li></li><li></li><li></li><li></li> <!--This is where the days will be shown-->
-			                    </ul>
-			                </div>
-			            </li>
-							{{/each}}
-        	</ul>
-			{{/if}}
-    </div>
+	<div class="habits">
+		{{#if habits}}
+			<!--run code below if habits exist-->
+			<ul id="habits_ul">
+				{{#each habits}}
+					<!--forloop for each habit-->
+					<li id="HabitID_{{this._id}}">
+						<div id="habit_top" style="background-color: {{this.colour}}">
+							<!--setting the colour-->
+							<h3>{{this.habit_name}} - {{this.weekly_goal}} time(s) a week</h3>
+							<badge><a href="/stats/{{this._id}}">Check Stats</a></badge>
+							<!--check stats link-->
+						</div>
+						<div id="habit_middle">
+							<ul>
+								<!--This is where the days will be shown-->
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+								<li></li>
+							</ul>
+						</div>
+					</li>
+				{{/each}}
+			</ul>
+		{{/if}}
+	</div>
 
 </div>
 
-<div class="StatsModal">
+<div class="StatsModal"> <!-- Modal containing all the habits for a user to pick which one to see the stats for -->
 	<h3>Select a habit</h3>
 	{{#if habits}}
 		<ul>
@@ -97,4 +106,4 @@
 		</ul>
 	{{/if}}
 </div>
-<div class="StatsModalBackground"></div>
+<div class="StatsModalBackground"></div> <!-- dark background to make the statsModal stand out and is also used to close it -->

@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{{title}}}</title>
 
-    <!-- <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"/> -->
-    <script defer src="/font-awesome/fontawesome-all.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik"/>
-    <link rel="stylesheet" href="/css/reset.css"/>
-    <link rel="stylesheet" href="/css/style.css"/>
-  </head>
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{{title}}}</title>
 
+  <!-- loading fontawesome (icons), Rubik (font) and my stylesheets -->
+  <script defer src="/font-awesome/fontawesome-all.min.js"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik" />
+  <link rel="stylesheet" href="/css/reset.css" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
 
-      {{{body}}}
+<body>
 
+  <!-- this means load each non-layout hbs file here -->
+  {{{body}}}
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
-    <script src="/js/index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-  </body>
+  <!-- load jquery, axios (for requests), chartjs (stats chart) and my script -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.17.1/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+
 </html>

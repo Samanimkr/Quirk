@@ -1,4 +1,4 @@
-<header>
+<header><!-- header with page name, buttons and facebook profile -->
 	<span>{{habit.habit_name}} Statistics</span>
 	<span style="color: #ddd; font-size:16px;padding-left: 0;">{{habit.habit_desc}}</span>
 	<div class="current_user right">
@@ -9,7 +9,7 @@
 	<a href="/stats/{{habit._id}}/delete" class="right"><i class="fas fa-trash-alt"></i></a>
 </header>
 
-<nav>
+<nav> <!-- Navbar with links -->
   <div class="nav_header"><i class="fa fa-bolt" aria-hidden="true"></i> Quirk</div>
   <div class="nav_links">
     <ul>
@@ -23,7 +23,7 @@
 </nav>
 
 <div class="content" id="stats_content">
-	<div class="habit_tab">
+	<div class="habit_tab"> <!-- drop down tab for editting a habit -->
 		<form method="POST" action="/stats/{{habit._id}}/edit">
 			<ul>
 				<li>
@@ -66,7 +66,7 @@
 			</ul>
 		</form>
 	</div>
-	<!-- <ul>
+	<ul> <!-- the stats at the top of the page -->
 		<li>
 			<h3 id="#current_streak">{{stats.currentStreak}}</h3>
 			<p>Current Streak</p>
@@ -84,10 +84,10 @@
 			<p>Total Days</p>
 		</li>
 	</ul>
-	<canvas id="mychart"></canvas>
-</div> -->
+	<canvas id="mychart"></canvas> <!-- this is where the chart will be loaded -->
+</div>
 
-<div class="StatsModal">
+<div class="StatsModal"> <!-- Modal containing all the habits for a user to pick which one to see the stats for -->
 	<h3>Select a habit</h3>
 	{{#if habits}}
 		<ul>
@@ -97,4 +97,4 @@
 		</ul>
 	{{/if}}
 </div>
-<div class="StatsModalBackground"></div>
+<div class="StatsModalBackground"></div> <!-- dark background to make the statsModal stand out and is also used to close it -->
