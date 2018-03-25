@@ -75,7 +75,7 @@ $(document).ready(function() {
         var id = habit_name.substr(8); //getting just the id of it from the name
 
         // Sending a POST request
-        axios.post('/updatehabit', {
+        axios.post('/updatedate', {
                 habit_id: id,
                 date: date
             })

@@ -141,7 +141,7 @@ module.exports = (app) => {
     //  - not stored then store in datesCompleted  (completed)
     //  - in datesCompleted then move to datesFailed  (failed)
     //  - in datesFailed then remove it (skipped)
-    app.post('/updatehabit', function(req, res) {
+    app.post('/updatedate', function(req, res) {
         Habit.findOne({
             _id: req.body.habit_id
         }, function(err, habit) { //when habit is found:
