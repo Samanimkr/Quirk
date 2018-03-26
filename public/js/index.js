@@ -119,18 +119,16 @@ $(document).ready(function() {
     });
 
 
-
     // ======================================{ Stats Page }===========================================]
-    if (window.location.pathname.substr(0, 6) == "/stats") { //when stats page is navigated to then:
 
+    if (window.location.pathname.substr(0, 6) == "/stats") { //when stats page is navigated to
         var habit_id = window.location.pathname.substr(7, 24) //get the habit id of the habit stats open right now
+
         axios.get('/gethabits') //get all the habits' data
-            .then(response => loadCharts(response.data)) //send response to loadCharts()
-            .catch(e => { //if error then output it
-                console.log(e);
-            });
-
-
+        .then(response => loadCharts(response.data)) //send response to loadCharts()
+        .catch(e => { //if error then output it
+            console.log(e);
+        });
     }
 
 
@@ -138,16 +136,20 @@ $(document).ready(function() {
         var index = data.findIndex(i => i._id == habit_id) //find the habit with the habit id of this stats page
         var habit = data[index];
         var stats = { //calculate the stats
+            currentStreak: habit.currentStreak,
+            maxStreak: habit.maxStreak,
             daysCompleted: habit.datesCompleted.length,
             daysFailed: habit.datesFailed.length,
             totalDays: habit.weekly_goal * habit.num_of_weeks
         }
-        //these stats had to be calculated outside because they require other stats already created (e.g. daysMarked requires daysCompleted and daysFailed)
+        //these had to be calculated outside because they require other stats already created (e.g. daysMarked requires daysCompleted & daysFailed)
         stats.daysMarked = stats.daysCompleted + stats.daysFailed;
         stats.successRate = Math.round((stats.daysCompleted / stats.daysMarked) * 100);
         stats.daysLeft = stats.totalDays - stats.daysMarked < 0 ? 0 : stats.totalDays - stats.daysMarked;
 
         //outputting the success rate and total days on the page
+        document.getElementById("#current_streak").innerText = stats.currentStreak;
+        document.getElementById("#max_streak").innerText =  stats.maxStreak;
         document.getElementById("#success_rate").innerText = stats.successRate + "%";
         document.getElementById("#total_days").innerText = stats.daysMarked;
 

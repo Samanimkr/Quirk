@@ -11,7 +11,7 @@ var habitSchema = new Schema(
     num_of_weeks: Number,
     datesCompleted: [String],
     datesFailed: [String],
-    CurrentStreak: {type: Number, default: 0},
+    currentStreak: {type: Number, default: 0},
     maxStreak: {type: Number, default: 0},
     colour: String
   },

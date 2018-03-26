@@ -62,13 +62,12 @@ module.exports = (app) => {
             }, async function(err, habits) { //async stops this function from being synchronous
                 habit = await habits[habits.findIndex(i => i._id == habit_id)]; //finding the habit requested by searching through habits
                 await sortHabit(habit); //wait for the result from sorthHabit()
-                var stats = await getStreaks(habit); //wait for result from getStreaks()
+                await getStreaks(habit); //wait for result from getStreaks()
                 res.render('statistics', {
                     title: "Quirk - " + habit.habit_name + " Statistics",
                     user: user,
                     habit: habit,
                     habits: habits,
-                    stats: stats
                 });
 
             });
@@ -224,11 +223,8 @@ module.exports = (app) => {
         //if currentStreak still equals -1 then that means its supposed to be equal to maxStreak
         currentStreak = (currentStreak==-1)? maxStreak: currentStreak;
         //add the streaks to the stats object
-        stats = {
-            currentStreak: currentStreak,
-            maxStreak: maxStreak
-        }
-        return stats; //and return it
+        habit.currentStreak = currentStreak;
+        habit.maxStreak = maxStreak;
     }
 
 
