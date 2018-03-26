@@ -7,6 +7,8 @@ const cookieParser = require('cookie-parser');
 const session = require("express-session");
 const mongoDBStore = require('connect-mongodb-session')(session);
 const fs = require("fs");
+var jsdom = require('jsdom');
+$ = require('jquery')(new jsdom.JSDOM().window); 
 const path = require('path');
 
 //if credentials.json exists then import its content
@@ -55,6 +57,13 @@ app.use(session({
 
 //Setting the Templating engine to Handlebars
 app.engine('hbs', handlebars({
+    helpers: {
+        select: function (value, options) {
+            var $el = $('<select />').html( options.fn(this) );
+            $el.find('[value="' + value + '"]').attr({'selected':'selected'});
+            return $el.html();
+        }
+    },
     defaultLayout: 'main'
 }));
 app.set('view engine', 'hbs');

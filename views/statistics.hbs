@@ -37,6 +37,7 @@
 				<li>
 					<label for="weeklyGoal">Weekly goal:</label>
 					<select name="weeklyGoal">
+						{{#select habit.weekly_goal}}
 						<option value="1">Once a week</option>
 						<option value="2">2 times a week</option>
 						<option value="3">3 times a week</option>
@@ -44,6 +45,7 @@
 						<option value="5">5 times a week</option>
 						<option value="6">6 times a week</option>
 						<option value="7">Every day</option>
+						{{/select}}
 					</select>
 				</li>
 				<li>
@@ -53,11 +55,13 @@
 				<li>
 					<label for="colour">Colour:</label>
 					<select name="colour">
+						{{#select habit.colour}}
 						<option value="#FFFFFF">White</option>
 						<option value="#FFAA7D">Orange</option>
 						<option  value="#DC6E6E">Red</option>
 						<option value="#8FE08E">Green</option>
 						<option value="#64C4E0">Blue</option>
+						{{/select}}
 					</select>
 				</li>
 				<li>

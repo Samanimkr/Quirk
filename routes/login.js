@@ -61,7 +61,7 @@ module.exports = (app) => { //export all of this to the main app.js file
                                 .catch(err => {
                                     console.log("err: " + err);
                                 });
-                            } else {
+                            } else { //if user is already stored
                                 user.photoUrl = profile.photoUrl;
                                 user.save();
                             }

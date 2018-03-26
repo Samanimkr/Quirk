@@ -1,5 +1,11 @@
 $(document).ready(function() {
 
+    window.Handlebars.registerHelper('select', function( value, options ){
+        var $el = $('<select />').html( options.fn(this) );
+        $el.find('[value="' + value + '"]').attr({'selected':'selected'});
+        return $el.html();
+    });
+
     var animSpeed = 200; //used to keep the animation speed the same throughout the webpage
 
     //When 'Add habit' button is pressed => drop down menu
@@ -67,7 +73,7 @@ $(document).ready(function() {
     }
 
     //When a box/day is clicked then send a post request.
-    $(document).on('click', '.content#dashboard_content .habits ul li #habit_middle ul li', function() {
+    $('.content#dashboard_content .habits ul li #habit_middle ul li').click(function() {
         var dayClicked = $(this).index(); //get index of which day was clicked
         var date = getDate(dayClicked); //get its date in string format
         var habit_name = $(this).parent().parent().parent().attr('id'); //getting the name of the habit's box that was clicked
