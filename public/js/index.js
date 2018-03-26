@@ -13,13 +13,12 @@ $(document).ready(function() {
     });
 
     //functions that run as soon as the website is loaded
-    setDays();
-    getHabits(); //loads all the colours of the habits
-    function getHabits() {
+    setDays(); //sets the name of each day (e.g. Saturday, Sunday, Today, Tuesday, Wednesday)
+    loadColours(); //loads all the colours of the habits
+    function loadColours() {
         axios.get('/gethabits') //get request to "/gethabits" to get all the user's habits and their data
             .then(response => { //request successful
                 var data = response.data;
-                var html;
                 for (var habit = 0; habit < data.length; habit++) { //loop through all the habits from GET response
                     //getting the date of the 1st box:
                     var d = new Date();
