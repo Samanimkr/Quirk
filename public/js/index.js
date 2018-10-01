@@ -178,7 +178,8 @@ $(document).ready(function() {
                     display: true,
                     text: `Progress To Completing ${stats.totalDays} Days`,
                     fontSize: 18
-                }
+                },
+                animation: false
             }
         });
     }

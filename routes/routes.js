@@ -61,15 +61,18 @@ module.exports = (app) => {
                 'owner': LoggedInUser
             }, async function(err, habits) { //async stops this function from being synchronous
                 habit = await habits[habits.findIndex(i => i._id == habit_id)]; //finding the habit requested by searching through habits
-                await sortHabit(habit); //wait for the result from sorthHabit()
-                await getStreaks(habit); //wait for result from getStreaks()
-                res.render('statistics', {
-                    title: "Quirk - " + habit.habit_name + " Statistics",
-                    user: user,
-                    habit: habit,
-                    habits: habits,
-                });
-
+                if (habit == undefined){
+                    res.send("Habit could not be found!");
+                } else {
+                    await sortHabit(habit); //wait for the result from sorthHabit()
+                    await getStreaks(habit); //wait for result from getStreaks()
+                    res.render('statistics', {
+                        title: "Quirk - " + habit.habit_name + " Statistics",
+                        user: user,
+                        habit: habit,
+                        habits: habits,
+                    });
+                }
             });
         });
     });
@@ -106,7 +109,7 @@ module.exports = (app) => {
     });
 
     //POST-ing a new habbit
-    app.post('/addhabit', function(req, res, next) {
+    app.post('/addhabit', sessionChecker, function(req, res, next) {
         var newHabit = {
             owner: req.session.user,
             habit_name: req.body.habitName,
@@ -127,7 +130,7 @@ module.exports = (app) => {
     });
 
     //user GET-ing all the habits owned by the logged in user
-    app.get('/gethabits', function(req, res) {
+    app.get('/gethabits', sessionChecker, function(req, res) {
         Habit.find({
             owner: req.session.user
         }, function(err, habits) {
@@ -140,7 +143,7 @@ module.exports = (app) => {
     //  - not stored then store in datesCompleted  (completed)
     //  - in datesCompleted then move to datesFailed  (failed)
     //  - in datesFailed then remove it (skipped)
-    app.post('/updatedate', function(req, res) {
+    app.post('/updatedate', sessionChecker, function(req, res) {
         Habit.findOne({
             _id: req.body.habit_id
         }, function(err, habit) { //when habit is found:
