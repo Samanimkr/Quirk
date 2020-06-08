@@ -9,7 +9,7 @@
   "author": "Samani Mukhtar",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.17.0",
+    "axios": "^0.18.1",
     "bluebird": "^3.5.1",
     "body-parser": "^1.19.0",
     "connect-mongodb-session": "^1.4.0",
