@@ -19,7 +19,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.6",
     "jquery": "^3.5.0",
-    "jsdom": "^11.6.2",
+    "jsdom": "^16.2.2",
     "mongoose": "^5.7.5"
   }
 }
